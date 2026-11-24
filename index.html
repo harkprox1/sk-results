@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"/>
+  <meta name="theme-color" content="#0a0a18"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-title" content="SK Results"/>
+  <meta name="description" content="Satta King November 2026 – AA BB Dashboard, Prediction, Results"/>
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="apple-touch-icon" href="icons/icon-192.png"/>
+  <link rel="icon" href="icons/icon-192.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <title>SK Results – Nov 2026</title>
+  <style>
+/* ══════════════════════════════════════
+   ROOT TOKENS
+══════════════════════════════════════ */
+:root{
+  --bg:#060610;
+  --surface:#0d0d1f;
+  --card:#131326;
+  --card2:#1a1a30;
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(255,255,255,0.12);
+  --aa:#a855f7; --aa2:#7c3aed; --aa-glow:rgba(168,85,247,.3);
+  --bb:#3b82f6; --bb2:#1d4ed8; --bb-glow:rgba(59,130,246,.3);
+  --ds:#a855f7; --fb:#3b82f6; --gb:#f59e0b; --gl:#10b981;
+  --text:#f0f0fb; --muted:#7878a0; --muted2:#5a5a80;
+  --green:#22c55e; --red:#ef4444; --gold:#fbbf24;
+  --safe-top:env(safe-area-inset-top,0px);
+  --safe-bot:env(safe-area-inset-bottom,0px);
+  --nav-h:64px;
+  --radius:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:'Outfit',system-ui,sans-serif;
+  min-height:100dvh;overflow-x:hidden;
+  padding-bottom:calc(var(--nav-h) + var(--safe-bot) + 10px);
+}
+/* Mesh gradient bg */
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 10%,rgba(168,85,247,.18) 0%,transparent 55%),
+    radial-gradient(ellipse 55% 40% at 85% 85%,rgba(59,130,246,.15) 0%,transparent 55%),
+    radial-gradient(ellipse 40% 30% at 50% 50%,rgba(99,102,241,.06) 0%,transparent 60%);
+}
+img{display:block}
+
+/* ══ SCROLLBAR ══ */
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:99px}
+
+/* ══════════════════════════════════════
+   BOTTOM NAV
+══════════════════════════════════════ */
+.bottom-nav{
+  position:fixed;bottom:0;left:0;right:0;z-index:999;
+  height:calc(var(--nav-h) + var(--safe-bot));
+  background:rgba(13,13,31,0.92);
+  -webkit-backdrop-filter:blur(28px);backdrop-filter:blur(28px);
+  border-top:1px solid var(--border2);
+  display:flex;align-items:flex-start;
+  padding-top:8px;padding-bottom:var(--safe-bot);
+}
+.nav-item{
+  flex:1;display:flex;flex-direction:column;align-items:center;
+  gap:4px;padding:4px 2px;cursor:pointer;
+  border:none;background:none;color:var(--muted);
+  font-family:inherit;font-size:10px;font-weight:600;
+  letter-spacing:.4px;text-transform:uppercase;
+  transition:color .2s, transform .15s;
+}
+.nav-item.active{color:var(--aa)}
+.nav-item:active{transform:scale(.92)}
+.nav-icon{font-size:22px;line-height:1;transition:transform .2s}
+.nav-item.active .nav-icon{transform:scale(1.15)}
+
+/* ══════════════════════════════════════
+   TOP HEADER
+══════════════════════════════════════ */
+.top-header{
+  position:sticky;top:0;z-index:900;
+  background:rgba(6,6,16,0.88);
+  -webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  padding:calc(var(--safe-top) + 10px) 16px 10px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.header-title{display:flex;align-items:center;gap:10px}
+.header-icon{width:38px;height:38px;border-radius:12px;
+  background:linear-gradient(135deg,var(--aa),var(--bb));
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+  box-shadow:0 4px 15px var(--aa-glow)}
+.header-text h1{font-size:17px;font-weight:800;line-height:1.1}
+.header-text p{font-size:11px;color:var(--muted);font-weight:500}
+.live-pill{
+  display:flex;align-items:center;gap:5px;
+  background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.25);
+  border-radius:999px;padding:5px 11px;
+  font-size:11px;font-weight:700;color:var(--green);
+}
+.live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);
+  animation:pulse-dot 1.6s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}60%{box-shadow:0 0 0 5px rgba(34,197,94,0)}}
+
+/* ══════════════════════════════════════
+   PAGES
+══════════════════════════════════════ */
+.page{display:none;position:relative;z-index:1;padding:16px 14px 8px;animation:fadeSlide .3s ease both}
+.page.active{display:block}
+@keyframes fadeSlide{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* ══════════════════════════════════════
+   SECTION HEADER
+══════════════════════════════════════ */
+.sec-label{
+  font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;
+  color:var(--muted);margin:20px 0 12px;
+  display:flex;align-items:center;gap:8px;
+}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.sec-label:first-child{margin-top:4px}
+
+/* ══════════════════════════════════════
+   CARDS
+══════════════════════════════════════ */
+.card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:18px;
+  margin-bottom:14px;
+  transition:transform .2s, box-shadow .2s;
+}
+.card:active{transform:scale(.985)}
+.card.glow-aa{border-color:rgba(168,85,247,.2);box-shadow:0 0 0 1px rgba(168,85,247,.1),0 8px 30px rgba(168,85,247,.1)}
+.card.glow-bb{border-color:rgba(59,130,246,.2);box-shadow:0 0 0 1px rgba(59,130,246,.1),0 8px 30px rgba(59,130,246,.1)}
+.card.glow-ds{border-color:rgba(168,85,247,.18);box-shadow:0 6px 24px rgba(168,85,247,.1)}
+.card.glow-fb{border-color:rgba(59,130,246,.18);box-shadow:0 6px 24px rgba(59,130,246,.1)}
+.card.glow-gb{border-color:rgba(245,158,11,.18);box-shadow:0 6px 24px rgba(245,158,11,.1)}
+.card.glow-gl{border-color:rgba(16,185,129,.18);box-shadow:0 6px 24px rgba(16,185,129,.1)}
+
+/* ══════════════════════════════════════
+   GRID
+══════════════════════════════════════ */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.g2-auto{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+
+/* ══ COLOR HELPERS ══ */
+.c-ds{color:var(--ds)}.c-fb{color:var(--fb)}.c-gb{color:var(--gb)}.c-gl{color:var(--gl)}
+.c-aa{color:#d8b4fe}.c-bb{color:#93c5fd}
+
+/* ══════════════════════════════════════
+   CHIPS & BADGES
+══════════════════════════════════════ */
+.chip{display:inline-flex;align-items:center;justify-content:center;
+  border-radius:8px;padding:3px 10px;font-size:12px;font-weight:800;letter-spacing:.5px;min-width:36px}
+.chip-aa{background:rgba(168,85,247,.18);color:#d8b4fe;border:1px solid rgba(168,85,247,.4)}
+.chip-bb{background:rgba(59,130,246,.18);color:#93c5fd;border:1px solid rgba(59,130,246,.4)}
+.chip-none{color:rgba(255,255,255,.18);font-weight:300;font-size:16px}
+
+/* ══════════════════════════════════════
+   TABLE
+══════════════════════════════════════ */
+.tbl-wrap{overflow-x:auto;border-radius:14px;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;min-width:280px}
+thead th{
+  background:rgba(255,255,255,.04);padding:10px 12px;text-align:center;
+  font-size:10px;text-transform:uppercase;letter-spacing:1.4px;
+  color:var(--muted);font-weight:700;border-bottom:1px solid var(--border);
+  position:sticky;top:0;
+}
+thead th:first-child{text-align:left;min-width:60px}
+tbody td{
+  padding:10px 12px;text-align:center;
+  border-bottom:1px solid var(--border);
+  font-weight:700;font-size:14px;
+  transition:background .15s;
+}
+tbody td:first-child{text-align:left;color:var(--muted);font-weight:600;font-size:12px}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:active td{background:rgba(255,255,255,.04)}
+.hi-cell{background:rgba(34,197,94,.14);color:#4ade80;border-radius:7px}
+.lo-cell{background:rgba(239,68,68,.14);color:#f87171;border-radius:7px}
+.today-row td{background:rgba(255,255,255,.025)}
+
+/* ══════════════════════════════════════
+   PAGE 1 — HOME / OVERVIEW
+══════════════════════════════════════ */
+/* Hero Stats Row */
+.hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:4px}
+.stat-box{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:16px;padding:16px 14px;text-align:center;
+}
+.stat-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:6px}
+.stat-val{font-size:38px;font-weight:900;line-height:1}
+.stat-sub{font-size:10px;color:var(--muted);margin-top:5px;line-height:1.5}
+
+/* Summary row */
+.summary-row{display:flex;gap:8px;margin-bottom:14px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+.summary-row::-webkit-scrollbar{display:none}
+.sum-pill{
+  flex-shrink:0;background:var(--card);border:1px solid var(--border);
+  border-radius:999px;padding:7px 14px;
+  font-size:12px;font-weight:600;white-space:nowrap;
+}
+
+/* ══════════════════════════════════════
+   HI/LO GAME CARDS
+══════════════════════════════════════ */
+.hilo-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:12px}
+.hilo-game-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px}
+.hilo-rows{display:flex;gap:10px}
+.hilo-box{flex:1;background:rgba(255,255,255,.03);border-radius:13px;padding:12px 10px;text-align:center}
+.hilo-emoji{font-size:18px;margin-bottom:4px}
+.hilo-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.hilo-num{font-size:32px;font-weight:900;line-height:1}
+.hilo-date{font-size:10px;color:var(--muted);margin-top:4px}
+
+/* ══════════════════════════════════════
+   PAGE 2 — AA/BB TABLE & COUNTS
+══════════════════════════════════════ */
+.count-banner{
+  background:linear-gradient(135deg,rgba(168,85,247,.15),rgba(59,130,246,.12));
+  border:1px solid rgba(168,85,247,.2);
+  border-radius:var(--radius);padding:20px;
+  margin-bottom:14px;
+}
+.count-banner-row{display:flex;justify-content:space-around;align-items:center}
+.cbn{text-align:center}
+.cbn-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:6px}
+.cbn-val{font-size:52px;font-weight:900;line-height:1}
+.cbn-sep{width:1px;height:60px;background:var(--border)}
+.per-game-row{margin-top:12px;padding-top:12px;border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(4,1fr);gap:6px;text-align:center}
+.pgr-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.pgr-aa{font-size:14px;font-weight:900;color:#d8b4fe}
+.pgr-bb{font-size:14px;font-weight:900;color:#93c5fd}
+
+/* ══════════════════════════════════════
+   PAGE 3 — PREDICTION
+══════════════════════════════════════ */
+.pred-card{
+  position:relative;overflow:hidden;
+  border-radius:var(--radius);border:1px solid var(--border);
+  background:var(--card);padding:20px;
+  margin-bottom:12px;
+}
+.pred-card::before{
+  content:'';position:absolute;inset:0;
+  opacity:.08;background:var(--pred-bg,#a855f7);pointer-events:none;
+  border-radius:inherit;
+}
+.pred-game-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px}
+.pred-sub{font-size:11px;color:var(--muted);margin-bottom:12px}
+.pred-main{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.pred-badge{
+  display:flex;align-items:center;justify-content:center;
+  width:72px;height:72px;border-radius:18px;
+  font-size:22px;font-weight:900;letter-spacing:1px;flex-shrink:0;
+  animation:glow-pulse 2.5s ease-in-out infinite;
+}
+.pred-badge.aa{background:linear-gradient(135deg,rgba(168,85,247,.35),rgba(124,58,237,.2));color:#d8b4fe;border:1px solid rgba(168,85,247,.5);box-shadow:0 0 25px rgba(168,85,247,.3)}
+.pred-badge.bb{background:linear-gradient(135deg,rgba(59,130,246,.35),rgba(29,78,216,.2));color:#93c5fd;border:1px solid rgba(59,130,246,.5);box-shadow:0 0 25px rgba(59,130,246,.3)}
+.pred-badge.tie{background:rgba(255,255,255,.07);color:var(--muted);border:1px solid var(--border)}
+@keyframes glow-pulse{0%,100%{opacity:1}50%{opacity:.7}}
+.pred-info{}
+.pred-info-label{font-size:11px;color:var(--muted);margin-bottom:2px}
+.pred-info-val{font-size:14px;font-weight:800}
+.pred-reason{font-size:11px;color:var(--muted);line-height:1.6;margin-bottom:12px;padding:10px 12px;background:rgba(255,255,255,.03);border-radius:11px}
+.prob-row{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.prob-label-txt{font-size:11px;font-weight:700;min-width:22px}
+.prob-bar-bg{flex:1;height:8px;border-radius:4px;background:rgba(255,255,255,.07);overflow:hidden}
+.prob-fill{height:100%;border-radius:4px;transition:width .8s cubic-bezier(.25,1,.5,1)}
+.prob-pct{font-size:11px;font-weight:800;min-width:36px;text-align:right}
+.last8-row{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px}
+.dot{width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;cursor:default;transition:transform .15s}
+.dot:active{transform:scale(1.2)}
+
+/* ══════════════════════════════════════
+   PAGE 4 — LAST 2 & 4 DAYS
+══════════════════════════════════════ */
+.l2-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:14px}
+.l2-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.l2-type-badge{
+  display:inline-flex;align-items:center;gap:5px;
+  border-radius:999px;padding:5px 14px;
+  font-size:12px;font-weight:800;letter-spacing:.5px;
+}
+.l2-type-badge.aa{background:rgba(168,85,247,.18);color:#d8b4fe;border:1px solid rgba(168,85,247,.35)}
+.l2-type-badge.bb{background:rgba(59,130,246,.18);color:#93c5fd;border:1px solid rgba(59,130,246,.35)}
+.l2-days-label{font-size:11px;color:var(--muted);font-weight:600}
+.l2-game-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 0;border-bottom:1px solid var(--border);
+}
+.l2-game-row:last-child{border-bottom:none}
+.l2-game-name{font-size:13px;font-weight:700;margin-bottom:4px}
+.l2-day-chips{display:flex;gap:5px}
+.l2-count-num{font-size:22px;font-weight:900;min-width:32px;text-align:right}
+.l2-count-label{font-size:10px;color:var(--muted);text-align:right}
+.row-winner{background:rgba(251,191,36,.05);border-radius:12px;padding:10px 10px;margin:0 -10px}
+.row-loser{background:rgba(239,68,68,.05);border-radius:12px;padding:10px 10px;margin:0 -10px}
+.l2-summary{
+  margin-top:14px;padding:11px 13px;
+  background:rgba(255,255,255,.03);border-radius:12px;
+  font-size:12px;color:var(--muted);line-height:1.7;
+}
+
+/* ══════════════════════════════════════
+   STREAK BARS
+══════════════════════════════════════ */
+.streak-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.streak-bar-bg{flex:1;height:8px;border-radius:4px;background:rgba(255,255,255,.06);overflow:hidden}
+.streak-bar-fill{height:100%;border-radius:4px}
+.streak-label{font-size:11px;font-weight:700;min-width:48px;text-align:right}
+
+/* ══════════════════════════════════════
+   TOAST / FOOTER
+══════════════════════════════════════ */
+.disclaimer{
+  text-align:center;font-size:11px;color:var(--muted2);
+  margin:20px 0 6px;padding:12px 16px;
+  background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.1);
+  border-radius:12px;line-height:1.6;
+}
+
+/* ══════════════════════════════════════
+   INSTALL BANNER
+══════════════════════════════════════ */
+#install-banner{
+  display:none;position:fixed;bottom:calc(var(--nav-h) + var(--safe-bot) + 12px);
+  left:14px;right:14px;z-index:950;
+  background:linear-gradient(135deg,rgba(168,85,247,.95),rgba(99,102,241,.95));
+  -webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
+  border-radius:16px;padding:14px 16px;
+  display:flex;align-items:center;gap:12px;
+  box-shadow:0 8px 32px rgba(168,85,247,.4);
+  animation:slideUp .4s cubic-bezier(.25,1,.5,1);
+}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+#install-banner p{flex:1;font-size:13px;font-weight:600;color:#fff;line-height:1.4}
+#install-banner button{
+  background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);
+  border-radius:10px;padding:7px 14px;color:#fff;
+  font-family:inherit;font-size:12px;font-weight:800;cursor:pointer;white-space:nowrap;
+}
+#install-close{
+  background:none;border:none;color:rgba(255,255,255,.6);
+  font-size:18px;cursor:pointer;padding:0 2px;flex-shrink:0;
+}
+  </style>
+</head>
+<body>
+
+<!-- ══ TOP HEADER ══ -->
+<div class="top-header">
+  <div class="header-title">
+    <div class="header-icon">🎯</div>
+    <div class="header-text">
+      <h1>SK Results</h1>
+      <p>November 2026</p>
+    </div>
+  </div>
+  <div class="live-pill">
+    <div class="live-dot"></div>
+    <span id="live-txt">Live</span>
+  </div>
+</div>
+
+<!-- ══ PAGES ══ -->
+
+<!-- PAGE 1: HOME -->
+<div class="page active" id="pg-home">
+
+  <div class="sec-label">📊 इस महीने का सारांश</div>
+  <div class="hero-stats">
+    <div class="stat-box">
+      <div class="stat-label">AA — total</div>
+      <div class="stat-val c-aa" id="total-aa">—</div>
+      <div class="stat-sub" id="aa-breakdown">Game-wise loading…</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">BB — total</div>
+      <div class="stat-val c-bb" id="total-bb">—</div>
+      <div class="stat-sub" id="bb-breakdown">Game-wise loading…</div>
+    </div>
+  </div>
+
+  <!-- Summary Pills -->
+  <div class="summary-row" id="summary-pills"></div>
+
+  <div class="sec-label">📅 पिछले 4 दिनों के Numbers</div>
+  <div class="card">
+    <div class="tbl-wrap">
+      <table id="num-table">
+        <thead><tr>
+          <th>Date</th>
+          <th class="c-ds">DS</th>
+          <th class="c-fb">FB</th>
+          <th class="c-gb">GB</th>
+          <th class="c-gl">GL</th>
+        </tr></thead>
+        <tbody id="num-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec-label">🏆 सबसे ज़्यादा & सबसे कम (4 दिन)</div>
+  <div id="hilo-container"></div>
+
+  <div class="disclaimer">⚠️ यह सिर्फ data analysis tool है। Gambling की कोई सलाह नहीं दी जाती।</div>
+</div>
+
+<!-- PAGE 2: AA/BB TABLE -->
+<div class="page" id="pg-table">
+
+  <div class="sec-label">🔢 AA और BB — इस महीने</div>
+  <div class="count-banner">
+    <div class="count-banner-row">
+      <div class="cbn">
+        <div class="cbn-label">AA आया</div>
+        <div class="cbn-val c-aa" id="cb-aa">—</div>
+      </div>
+      <div class="cbn-sep"></div>
+      <div class="cbn-bb">
+        <div class="cbn-label">BB आया</div>
+        <div class="cbn-val c-bb" id="cb-bb">—</div>
+      </div>
+    </div>
+    <div class="per-game-row" id="pgr-grid"></div>
+  </div>
+
+  <div class="sec-label">📋 पूरे महीने की AA/BB Table</div>
+  <div class="card">
+    <div class="tbl-wrap">
+      <table id="aabb-table">
+        <thead><tr>
+          <th>Date</th>
+          <th class="c-ds">DS</th>
+          <th class="c-fb">FB</th>
+          <th class="c-gb">GB</th>
+          <th class="c-gl">GL</th>
+        </tr></thead>
+        <tbody id="aabb-body"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 3: PREDICTION -->
+<div class="page" id="pg-pred">
+
+  <div class="sec-label">🔮 Next Turn Prediction</div>
+  <div style="font-size:12px;color:var(--muted);margin-bottom:14px;line-height:1.6;padding:10px 12px;background:rgba(168,85,247,.06);border-radius:12px;border:1px solid rgba(168,85,247,.15)">
+    💡 Logic: पिछले 8 entries में जो कम आया हो, उसके अगले turn में आने की संभावना ज़्यादा मानी जाती है।
+  </div>
+  <div id="pred-container"></div>
+
+  <div class="sec-label">🔁 पिछले 8 बार का Pattern</div>
+  <div id="streak-container"></div>
+
+</div>
+
+<!-- PAGE 4: ANALYSIS -->
+<div class="page" id="pg-analysis">
+
+  <div class="sec-label">📆 पिछले 2 दिनों में AA और BB</div>
+  <div id="l2-container"></div>
+
+  <div class="sec-label">📊 पिछले 4 दिनों में AA और BB</div>
+  <div id="l4-container"></div>
+
+</div>
+
+<!-- ══ BOTTOM NAV ══ -->
+<nav class="bottom-nav">
+  <button class="nav-item active" data-page="pg-home" onclick="navTo('pg-home',this)">
+    <span class="nav-icon">🏠</span>
+    <span>Home</span>
+  </button>
+  <button class="nav-item" data-page="pg-table" onclick="navTo('pg-table',this)">
+    <span class="nav-icon">📋</span>
+    <span>Table</span>
+  </button>
+  <button class="nav-item" data-page="pg-pred" onclick="navTo('pg-pred',this)">
+    <span class="nav-icon">🔮</span>
+    <span>Predict</span>
+  </button>
+  <button class="nav-item" data-page="pg-analysis" onclick="navTo('pg-analysis',this)">
+    <span class="nav-icon">📆</span>
+    <span>Analysis</span>
+  </button>
+</nav>
+
+<!-- ══ INSTALL BANNER ══ -->
+<div id="install-banner" style="display:none">
+  <span style="font-size:28px">📲</span>
+  <p>इस App को अपने Phone पर Install करें — बिना Internet भी चलेगा!</p>
+  <button id="install-btn">Install</button>
+  <button id="install-close" onclick="document.getElementById('install-banner').style.display='none'">✕</button>
+</div>
+
+<script>
+// ════════════════════════════════════════
+//  NAV
+// ════════════════════════════════════════
+function navTo(id, btn){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'instant'});
+}
+
+// ════════════════════════════════════════
+//  DATA — November 2026
+// ════════════════════════════════════════
+const RAW = [
+  {d:1,  DS:'XX',FB:77,  GB:63,  GL:82,  dsM:'_', fbM:'AA',gbM:'-', glM:'-'},
+  {d:2,  DS:64,  FB:20,  GB:79,  GL:78,  dsM:'-', fbM:'BB',gbM:'-', glM:'-'},
+  {d:3,  DS:99,  FB:51,  GB:15,  GL:74,  dsM:'AA',fbM:'AA',gbM:'AA',glM:'-'},
+  {d:4,  DS:62,  FB:91,  GB:41,  GL:2,   dsM:'-', fbM:'AA',gbM:'AA',glM:'BB'},
+  {d:5,  DS:86,  FB:40,  GB:7,   GL:81,  dsM:'-', fbM:'BB',gbM:'AA',glM:'AA'},
+  {d:6,  DS:38,  FB:75,  GB:55,  GL:62,  dsM:'-', fbM:'-', gbM:'AA',glM:'-'},
+  {d:7,  DS:46,  FB:79,  GB:24,  GL:57,  dsM:'-', fbM:'-', gbM:'-', glM:'-'},
+  {d:8,  DS:74,  FB:94,  GB:77,  GL:69,  dsM:'-', fbM:'-', gbM:'AA',glM:'-'},
+  {d:9,  DS:24,  FB:65,  GB:18,  GL:1,   dsM:'-', fbM:'-', gbM:'BB',glM:'AA'},
+  {d:10, DS:16,  FB:20,  GB:5,   GL:29,  dsM:'BB',fbM:'BB',gbM:'AA',glM:'-'},
+  {d:11, DS:51,  FB:89,  GB:93,  GL:37,  dsM:'AA',fbM:'-', gbM:'-', glM:'-'},
+  {d:12, DS:54,  FB:52,  GB:16,  GL:15,  dsM:'-', fbM:'-', gbM:'BB',glM:'AA'},
+  {d:13, DS:10,  FB:98,  GB:94,  GL:26,  dsM:'BB',fbM:'-', gbM:'-', glM:'-'},
+  {d:14, DS:93,  FB:92,  GB:54,  GL:97,  dsM:'-', fbM:'-', gbM:'-', glM:'-'},
+  {d:15, DS:85,  FB:57,  GB:85,  GL:81,  dsM:'-', fbM:'-', gbM:'-', glM:'AA'},
+  {d:16, DS:57,  FB:36,  GB:25,  GL:51,  dsM:'-', fbM:'-', gbM:'-', glM:'AA'},
+  {d:17, DS:23,  FB:17,  GB:33,  GL:45,  dsM:'-', fbM:'AA',gbM:'AA',glM:'-'},
+  {d:18, DS:80,  FB:44,  GB:57,  GL:5,   dsM:'BB',fbM:'BB',gbM:'-', glM:'AA'},
+  {d:19, DS:70,  FB:12,  GB:47,  GL:85,  dsM:'BB',fbM:'BB',gbM:'-', glM:'-'},
+  {d:20, DS:47,  FB:95,  GB:15,  GL:47,  dsM:'-', fbM:'-', gbM:'AA',glM:'-'},
+  {d:21, DS:76,  FB:90,  GB:94,  GL:41,  dsM:'-', fbM:'BB',gbM:'-', glM:'AA'},
+  {d:22, DS:67,  FB:13,  GB:37,  GL:55,  dsM:'-', fbM:'AA',gbM:'-', glM:'AA'},
+  {d:23, DS:59,  FB:81,  GB:73,  GL:52,  dsM:'-', fbM:'AA',gbM:'-', glM:'-'},
+  {d:24, DS:44,  FB:'XX',GB:'XX',GL:'XX',dsM:'BB',fbM:'_', gbM:'_', glM:'_'},
+];
+
+const GAMES = [
+  {key:'DS',label:'Desawer',short:'DS',mKey:'dsM',cls:'ds',color:'#a855f7'},
+  {key:'FB',label:'Faridabad',short:'FB',mKey:'fbM',cls:'fb',color:'#3b82f6'},
+  {key:'GB',label:'Gaziabad',short:'GB',mKey:'gbM',cls:'gb',color:'#f59e0b'},
+  {key:'GL',label:'Gali',short:'GL',mKey:'glM',cls:'gl',color:'#10b981'},
+];
+
+const isNum = v => typeof v === 'number';
+const validRows = RAW.filter(r => r.DS!=='XX' && r.FB!=='XX' && r.GB!=='XX' && r.GL!=='XX');
+const last4 = validRows.slice(-4);
+
+// ════ helpers ════
+function chipHtml(m){
+  if(m==='AA') return `<span class="chip chip-aa">AA</span>`;
+  if(m==='BB') return `<span class="chip chip-bb">BB</span>`;
+  return `<span class="chip-none">—</span>`;
+}
+
+// ════════════════════════════════════════
+//  PAGE 1 — HOME
+// ════════════════════════════════════════
+(function(){
+  // Count totals
+  let totAA=0, totBB=0;
+  const aaCounts={}, bbCounts={};
+  GAMES.forEach(g=>{ aaCounts[g.key]=0; bbCounts[g.key]=0; });
+  RAW.forEach(r => GAMES.forEach(g=>{
+    if(r[g.mKey]==='AA'){ totAA++; aaCounts[g.key]++; }
+    if(r[g.mKey]==='BB'){ totBB++; bbCounts[g.key]++; }
+  }));
+  document.getElementById('total-aa').textContent = totAA;
+  document.getElementById('total-bb').textContent = totBB;
+  document.getElementById('aa-breakdown').innerHTML =
+    GAMES.map(g=>`<span class="c-${g.cls}">${g.short}:${aaCounts[g.key]}</span>`).join(' ');
+  document.getElementById('bb-breakdown').innerHTML =
+    GAMES.map(g=>`<span class="c-${g.cls}">${g.short}:${bbCounts[g.key]}</span>`).join(' ');
+
+  // Summary pills
+  const pills = document.getElementById('summary-pills');
+  const lastDay = RAW[RAW.length-1];
+  pills.innerHTML = `
+    <div class="sum-pill">📅 24 दिन का data</div>
+    <div class="sum-pill">🗓️ Nov ${RAW[RAW.length-1].d} latest</div>
+    <div class="sum-pill c-aa">AA: ${totAA} बार</div>
+    <div class="sum-pill c-bb">BB: ${totBB} बार</div>
+  `;
+
+  // Numeric table (last 4)
+  const tbody = document.getElementById('num-body');
+  const allVals = [];
+  last4.forEach(r => GAMES.forEach(g=>{ if(isNum(r[g.key])) allVals.push(r[g.key]); }));
+  const gMax = Math.max(...allVals), gMin = Math.min(...allVals);
+  last4.forEach(r => {
+    const tr = document.createElement('tr');
+    let cells = `<td><b>Nov ${r.d}</b></td>`;
+    GAMES.forEach(g => {
+      const v = isNum(r[g.key]) ? r[g.key] : null;
+      let cls = `c-${g.cls}`;
+      if(v===gMax) cls+=' hi-cell';
+      if(v===gMin) cls+=' lo-cell';
+      cells += `<td class="${cls}" style="font-size:16px">${v??'XX'}</td>`;
+    });
+    tr.innerHTML = cells;
+    tbody.appendChild(tr);
+  });
+
+  // HiLo cards
+  const hcont = document.getElementById('hilo-container');
+  GAMES.forEach(g => {
+    const vals = last4.map(r=>({v:r[g.key],d:r.d})).filter(x=>isNum(x.v));
+    const hi = vals.reduce((a,b)=>b.v>a.v?b:a);
+    const lo = vals.reduce((a,b)=>b.v<a.v?b:a);
+    const div = document.createElement('div');
+    div.className = `hilo-card glow-${g.cls}`;
+    div.innerHTML = `
+      <div class="hilo-game-label c-${g.cls}">${g.label}</div>
+      <div class="hilo-rows">
+        <div class="hilo-box">
+          <div class="hilo-emoji">🔺</div>
+          <div class="hilo-label" style="color:#4ade80">सबसे ज़्यादा</div>
+          <div class="hilo-num" style="color:${g.color}">${hi.v}</div>
+          <div class="hilo-date">Nov ${hi.d}</div>
+        </div>
+        <div class="hilo-box">
+          <div class="hilo-emoji">🔻</div>
+          <div class="hilo-label" style="color:#f87171">सबसे कम</div>
+          <div class="hilo-num" style="color:#ef4444">${lo.v}</div>
+          <div class="hilo-date">Nov ${lo.d}</div>
+        </div>
+      </div>`;
+    hcont.appendChild(div);
+  });
+
+  document.getElementById('live-txt').textContent = `Nov 2026 · ${validRows.length}d`;
+})();
+
+// ════════════════════════════════════════
+//  PAGE 2 — TABLE
+// ════════════════════════════════════════
+(function(){
+  let totAA=0,totBB=0;
+  const aaCounts={},bbCounts={};
+  GAMES.forEach(g=>{aaCounts[g.key]=0;bbCounts[g.key]=0;});
+  RAW.forEach(r=>GAMES.forEach(g=>{
+    if(r[g.mKey]==='AA'){totAA++;aaCounts[g.key]++;}
+    if(r[g.mKey]==='BB'){totBB++;bbCounts[g.key]++;}
+  }));
+
+  document.getElementById('cb-aa').textContent = totAA;
+  document.getElementById('cb-bb').textContent = totBB;
+
+  // Per-game grid
+  const pgr = document.getElementById('pgr-grid');
+  GAMES.forEach(g=>{
+    pgr.innerHTML += `<div>
+      <div class="pgr-label c-${g.cls}">${g.short}</div>
+      <div class="pgr-aa">${aaCounts[g.key]}</div>
+      <div class="pgr-bb">${bbCounts[g.key]}</div>
+    </div>`;
+  });
+
+  // Full table
+  const tbody = document.getElementById('aabb-body');
+  RAW.forEach(r=>{
+    const tr = document.createElement('tr');
+    if(r.d===24) tr.className='today-row';
+    tr.innerHTML = `
+      <td><b>Nov ${r.d}</b></td>
+      <td>${chipHtml(r.dsM)}</td>
+      <td>${chipHtml(r.fbM)}</td>
+      <td>${chipHtml(r.gbM)}</td>
+      <td>${chipHtml(r.glM)}</td>`;
+    tbody.appendChild(tr);
+  });
+
+  // Totals row
+  const tot = document.createElement('tr');
+  tot.style.background='rgba(255,255,255,.025)';
+  tot.style.borderTop='2px solid rgba(255,255,255,.12)';
+  let tc=`<td style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--muted)">Total</td>`;
+  GAMES.forEach(g=>{
+    tc+=`<td><span class="chip chip-aa" style="font-size:10px;padding:2px 6px">${aaCounts[g.key]}</span> <span class="chip chip-bb" style="font-size:10px;padding:2px 6px">${bbCounts[g.key]}</span></td>`;
+  });
+  tot.innerHTML=tc;
+  tbody.appendChild(tot);
+})();
+
+// ════════════════════════════════════════
+//  PAGE 3 — PREDICTION
+// ════════════════════════════════════════
+(function(){
+  const pcont = document.getElementById('pred-container');
+  const scont = document.getElementById('streak-container');
+
+  GAMES.forEach(g=>{
+    const markers = RAW.map(r=>({d:r.d,m:r[g.mKey]})).filter(x=>x.m==='AA'||x.m==='BB'||x.m==='-');
+    const last8 = markers.slice(-8);
+    const aaC = last8.filter(x=>x.m==='AA').length;
+    const bbC = last8.filter(x=>x.m==='BB').length;
+    const none = last8.filter(x=>x.m==='-').length;
+
+    // Prediction logic
+    let predicted,badgeCls,probAA,probBB,reason;
+    if(aaC===0&&bbC===0){
+      predicted='?';badgeCls='tie';probAA=50;probBB=50;
+      reason='पिछले 8 बार में ना AA ना BB आया। Prediction संभव नहीं।';
+    } else if(aaC===bbC){
+      predicted='AA';badgeCls='aa';probAA=50;probBB=50;
+      reason=`AA और BB बराबर (${aaC}-${bbC})। Coin-flip situation।`;
+    } else if(aaC<bbC){
+      predicted='AA';badgeCls='aa';
+      const gap=bbC-aaC;
+      probAA=Math.min(55+gap*7,85);probBB=100-probAA;
+      reason=`पिछले 8 में AA: ${aaC}बार, BB: ${bbC}बार। AA कम आया → AA की संभावना ज़्यादा।`;
+    } else {
+      predicted='BB';badgeCls='bb';
+      const gap=aaC-bbC;
+      probBB=Math.min(55+gap*7,85);probAA=100-probBB;
+      reason=`पिछले 8 में BB: ${bbC}बार, AA: ${aaC}बार। BB कम आया → BB की संभावना ज़्यादा।`;
+    }
+
+    // Dots
+    const dotsHtml = last8.map(x=>{
+      const bg = x.m==='AA'?'#c084fc':x.m==='BB'?'#60a5fa':'rgba(255,255,255,0.08)';
+      const fg = x.m==='-'?'rgba(255,255,255,0.3)':'#0d0d1f';
+      return `<div class="dot" title="Nov ${x.d}: ${x.m}" style="background:${bg};color:${fg}">${x.m==='-'?'–':x.m}</div>`;
+    }).join('');
+
+    // Pred card
+    const pc = document.createElement('div');
+    pc.className=`pred-card glow-${g.cls}`;
+    pc.style.setProperty('--pred-bg',g.color);
+    pc.innerHTML=`
+      <div class="pred-game-label c-${g.cls}">${g.label}</div>
+      <div class="pred-sub">अगले turn में सबसे ज़्यादा संभावना</div>
+      <div class="pred-main">
+        <div class="pred-badge ${badgeCls}">${predicted}</div>
+        <div class="pred-info">
+          <div class="pred-info-label">Confidence</div>
+          <div class="pred-info-val" style="color:${badgeCls==='aa'?'#d8b4fe':badgeCls==='bb'?'#93c5fd':'var(--muted)'}">
+            ${badgeCls==='aa'?probAA:badgeCls==='bb'?probBB:50}%
+          </div>
+        </div>
+      </div>
+      <div class="pred-reason">📌 ${reason}</div>
+      <div class="prob-row">
+        <span class="prob-label-txt c-aa">AA</span>
+        <div class="prob-bar-bg"><div class="prob-fill" style="width:${probAA}%;background:#a855f7"></div></div>
+        <span class="prob-pct c-aa">${probAA}%</span>
+      </div>
+      <div class="prob-row">
+        <span class="prob-label-txt c-bb">BB</span>
+        <div class="prob-bar-bg"><div class="prob-fill" style="width:${probBB}%;background:#3b82f6"></div></div>
+        <span class="prob-pct c-bb">${probBB}%</span>
+      </div>
+      <div style="font-size:10px;color:rgba(255,255,255,0.2);margin-top:10px">Last 8 → AA:${aaC} | BB:${bbC} | None:${none}</div>`;
+    pcont.appendChild(pc);
+
+    // Streak card
+    const sc = document.createElement('div');
+    sc.className=`card glow-${g.cls}`;
+    sc.style.marginBottom='12px';
+    sc.innerHTML=`
+      <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px" class="c-${g.cls}">${g.label} — पिछले 8</div>
+      <div class="last8-row">${dotsHtml}</div>
+      <div class="streak-bar-row">
+        <span style="font-size:11px;color:#d8b4fe;min-width:22px;font-weight:700">AA</span>
+        <div class="streak-bar-bg"><div class="streak-bar-fill" style="width:${(aaC/8)*100}%;background:#a855f7"></div></div>
+        <span class="streak-label c-aa">AA: ${aaC}</span>
+      </div>
+      <div class="streak-bar-row">
+        <span style="font-size:11px;color:#93c5fd;min-width:22px;font-weight:700">BB</span>
+        <div class="streak-bar-bg"><div class="streak-bar-fill" style="width:${(bbC/8)*100}%;background:#3b82f6"></div></div>
+        <span class="streak-label c-bb">BB: ${bbC}</span>
+      </div>`;
+    scont.appendChild(sc);
+  });
+})();
+
+// ════════════════════════════════════════
+//  PAGE 4 — ANALYSIS (Last 2 & 4 days)
+// ════════════════════════════════════════
+(function(){
+  const validDays = RAW.filter(r=>GAMES.some(g=>r[g.mKey]==='AA'||r[g.mKey]==='BB'||r[g.mKey]==='-'));
+
+  function buildSection(daysArr, containerId, dayCount){
+    const cont = document.getElementById(containerId);
+    ['AA','BB'].forEach(type=>{
+      const isBB = type==='BB';
+      const pillColor = isBB?'#93c5fd':'#d8b4fe';
+      const barColor  = isBB?'#3b82f6':'#a855f7';
+      const badgeCls  = isBB?'bb':'aa';
+
+      const gameCounts = GAMES.map(g=>({
+        game:g,
+        count:daysArr.filter(r=>r[g.mKey]===type).length,
+        days:daysArr.map(r=>({d:r.d,v:r[g.mKey]}))
+      }));
+      const maxC = Math.max(...gameCounts.map(x=>x.count));
+      const minC = Math.min(...gameCounts.map(x=>x.count));
+
+      const dayLabels = daysArr.map(r=>`Nov ${r.d}`).join(' & ');
+      const card = document.createElement('div');
+      card.className='l2-card';
+
+      const sorted=[...gameCounts].sort((a,b)=>b.count-a.count);
+
+      let rowsHtml='';
+      sorted.forEach(item=>{
+        const isMax=item.count===maxC;
+        const isMin=item.count===minC&&maxC!==minC;
+        const dayChips = item.days.map(d=>{
+          const matched=d.v===type;
+          return matched
+            ? `<span class="chip chip-${type.toLowerCase()}">${type}</span>`
+            : `<span class="chip" style="background:rgba(255,255,255,.04);color:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.07)">—</span>`;
+        }).join('');
+        const rowClass=isMax?'l2-game-row row-winner':isMin?'l2-game-row row-loser':'l2-game-row';
+        rowsHtml+=`<div class="${rowClass}">
+          <div>
+            <div class="l2-game-name c-${item.game.cls}">${item.game.label}${isMax?' 👑':''}${isMin?' 🔻':''}</div>
+            <div class="l2-day-chips">${dayChips}</div>
+          </div>
+          <div>
+            <div class="l2-count-num" style="color:${item.count>0?barColor:'rgba(255,255,255,0.15)'}">${item.count}</div>
+            <div class="l2-count-label">${item.count===0?'नहीं आया':item.count===1?'1 बार':item.count+' बार'}</div>
+          </div>
+        </div>`;
+      });
+
+      const topG=sorted[0], botG=sorted[sorted.length-1];
+      const summaryTxt = maxC===minC
+        ? `ℹ️ सभी games में ${type} बराबर (${maxC} बार) आया`
+        : `🏆 ज़्यादा: <b style="color:${pillColor}">${topG.game.label}</b> (${topG.count}) &nbsp;|&nbsp; 🔻 कम: <b style="color:#ef4444">${botG.game.label}</b> (${botG.count})`;
+
+      card.innerHTML=`
+        <div class="l2-header">
+          <div class="l2-type-badge ${badgeCls}">${type}</div>
+          <div class="l2-days-label">${dayLabels}</div>
+        </div>
+        ${rowsHtml}
+        <div class="l2-summary">${summaryTxt}</div>`;
+      cont.appendChild(card);
+    });
+  }
+
+  buildSection(validDays.slice(-2), 'l2-container', 2);
+  buildSection(validDays.slice(-4), 'l4-container', 4);
+})();
+
+// ════════════════════════════════════════
+//  PWA — Service Worker & Install Prompt
+// ════════════════════════════════════════
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('sw.js').catch(()=>{});
+}
+
+let deferredPrompt=null;
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault();
+  deferredPrompt=e;
+  const banner=document.getElementById('install-banner');
+  if(banner) banner.style.display='flex';
+});
+document.getElementById('install-btn').addEventListener('click',async()=>{
+  if(!deferredPrompt) return;
+  deferredPrompt.prompt();
+  const {outcome}=await deferredPrompt.userChoice;
+  deferredPrompt=null;
+  document.getElementById('install-banner').style.display='none';
+});
+window.addEventListener('appinstalled',()=>{
+  document.getElementById('install-banner').style.display='none';
+});
+</script>
+</body>
+</html>
