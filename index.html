@@ -1744,7 +1744,13 @@ function toggleTheme(){
 //  PWA — Service Worker & Install Prompt
 // ════════════════════════════════════════
 if('serviceWorker' in navigator){
-  navigator.serviceWorker.register('sw.js').catch(()=>{});
+  let swRefreshing = false;
+  navigator.serviceWorker.addEventListener('controllerchange', ()=>{
+    if(!swRefreshing){ swRefreshing = true; window.location.reload(); }
+  });
+  navigator.serviceWorker.register('sw.js').then(reg=>{
+    try { reg.update(); } catch(e){}
+  }).catch(()=>{});
 }
 
 let deferredPrompt=null;

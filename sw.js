@@ -1,5 +1,5 @@
 // ══ SK Results PWA Service Worker ══
-const CACHE = 'sk-results-v5';
+const CACHE = 'sk-results-v6';
 const ASSETS = [
   './',
   './index.html',
@@ -29,17 +29,18 @@ self.addEventListener('activate', e => {
   self.clients.claim();
 });
 
-// Fetch: cache-first for local, network-first for remote
+// Fetch: network-first for local (always fresh when online, offline fallback), stale-while-revalidate for fonts
 self.addEventListener('fetch', e => {
   const url = new URL(e.request.url);
-  // local: serve from cache, fallback to network
   if(url.origin === location.origin){
     e.respondWith(
-      caches.match(e.request).then(r => r || fetch(e.request).then(res => {
-        const clone = res.clone();
-        caches.open(CACHE).then(c => c.put(e.request, clone));
+      fetch(e.request, { cache: 'no-cache' }).then(res => {
+        if(res && res.status === 200){
+          const clone = res.clone();
+          caches.open(CACHE).then(c => c.put(e.request, clone));
+        }
         return res;
-      }))
+      }).catch(() => caches.match(e.request))
     );
   }
   // google fonts: stale-while-revalidate
