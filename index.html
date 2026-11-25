@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="hi">
 <head>
   <meta charset="UTF-8"/>
@@ -355,6 +355,164 @@ tbody tr:active td{background:rgba(255,255,255,.04)}
   background:none;border:none;color:rgba(255,255,255,.6);
   font-size:18px;cursor:pointer;padding:0 2px;flex-shrink:0;
 }
+
+/* ══════════════════════════════════════
+   PAGE 5 — INVEST PLAN
+══════════════════════════════════════ */
+.inv-grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.inv-grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px}
+.inv-field label{display:block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:5px}
+.inv-input{
+  width:100%;background:rgba(255,255,255,.05);border:1px solid var(--border2);
+  border-radius:12px;padding:10px 12px;color:var(--text);
+  font-family:inherit;font-size:15px;font-weight:700;outline:none;
+  transition:border-color .2s, background .2s;
+}
+.inv-input:focus{border-color:var(--aa);background:rgba(168,85,247,.08)}
+.pct-pills{display:flex;gap:8px;margin-bottom:12px}
+.pct-pill{
+  flex:1;padding:9px 8px;border-radius:12px;border:1px solid var(--border2);
+  background:rgba(255,255,255,.04);color:var(--muted);
+  font-family:inherit;font-size:13px;font-weight:800;cursor:pointer;text-align:center;
+  transition:all .2s;
+}
+.pct-pill.active{
+  background:linear-gradient(135deg,rgba(168,85,247,.3),rgba(59,130,246,.25));
+  border-color:var(--aa);color:#fff;box-shadow:0 4px 14px rgba(168,85,247,.25);
+}
+.game-pills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.g-pill{
+  padding:6px 12px;border-radius:999px;border:1px solid var(--border2);
+  background:rgba(255,255,255,.04);color:var(--muted);
+  font-family:inherit;font-size:11px;font-weight:700;cursor:pointer;
+}
+.g-pill.active{background:rgba(168,85,247,.25);border-color:var(--aa);color:#e9d5ff}
+
+.next-turn-hero{
+  background:linear-gradient(145deg,rgba(168,85,247,.16),rgba(59,130,246,.12));
+  border:1px solid rgba(168,85,247,.3);
+  border-radius:var(--radius);padding:18px;margin-bottom:14px;
+}
+.nt-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.nt-turn-badge{
+  background:rgba(168,85,247,.25);border:1px solid rgba(168,85,247,.45);
+  color:#e9d5ff;font-size:11px;font-weight:800;padding:4px 12px;border-radius:999px;
+}
+.nt-loss-pill{font-size:12px;font-weight:700;color:#f87171}
+.nt-big-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.nt-box{background:rgba(6,6,16,.55);border:1px solid var(--border);border-radius:14px;padding:12px;text-align:center}
+.nt-box-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:4px}
+.nt-box-val{font-size:28px;font-weight:900;line-height:1.1}
+.nt-box-sub{font-size:10px;color:var(--muted);margin-top:4px}
+.nt-formula{
+  font-size:11px;color:#d8b4fe;background:rgba(168,85,247,.1);
+  border-radius:10px;padding:8px 12px;margin-bottom:12px;line-height:1.5;text-align:center;
+}
+.nt-win-preview{
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);
+  border-radius:12px;padding:10px 14px;margin-bottom:14px;font-size:12px;
+}
+.btn-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn-pass,.btn-fail{
+  border:none;border-radius:14px;padding:14px 12px;
+  font-family:inherit;font-size:14px;font-weight:800;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  transition:transform .15s, opacity .15s;
+}
+.btn-pass{background:linear-gradient(135deg,#16a34a,#22c55e);color:#fff;box-shadow:0 6px 20px rgba(34,197,94,.3)}
+.btn-fail{background:linear-gradient(135deg,#dc2626,#ef4444);color:#fff;box-shadow:0 6px 20px rgba(239,68,68,.3)}
+.btn-pass:active,.btn-fail:active{transform:scale(.96)}
+
+.mini-actions{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.btn-sm{
+  flex:1;min-width:95px;padding:9px 10px;border-radius:11px;
+  border:1px solid var(--border2);background:var(--card);color:var(--text);
+  font-family:inherit;font-size:11px;font-weight:700;cursor:pointer;text-align:center;
+}
+.btn-sm:active{transform:scale(.96)}
+.btn-sm.danger{border-color:rgba(239,68,68,.3);color:#f87171}
+
+.hist-badge-pass{background:rgba(34,197,94,.18);color:#4ade80;border:1px solid rgba(34,197,94,.35);padding:2px 8px;border-radius:6px;font-size:11px;font-weight:800}
+.hist-badge-fail{background:rgba(239,68,68,.18);color:#f87171;border:1px solid rgba(239,68,68,.35);padding:2px 8px;border-radius:6px;font-size:11px;font-weight:800}
+
+/* KPI Grid (Advanced Invest) */
+.inv-kpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.inv-kpi{background:var(--card2);border:1px solid var(--border2);border-radius:14px;padding:12px 14px}
+.inv-kpi-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;font-weight:700;margin-bottom:4px}
+.inv-kpi-val{font-size:22px;font-weight:900;line-height:1.1;letter-spacing:-.02em}
+.inv-kpi-sub{font-size:10px;color:var(--muted);margin-top:3px}
+
+/* Invest Tabs */
+.inv-tabs{display:flex;gap:8px;margin-bottom:12px}
+.inv-tab-btn{flex:1;padding:10px 8px;border-radius:12px;border:1px solid var(--border2);background:var(--card);color:var(--muted);font-family:inherit;font-size:12px;font-weight:700;cursor:pointer;transition:all .2s;text-align:center}
+.inv-tab-btn.active{background:linear-gradient(135deg,rgba(168,85,247,.25),rgba(59,130,246,.2));border-color:var(--aa);color:#fff}
+
+/* Quick Loss Calc Result */
+.inv-qlc-result{font-size:12px;color:#d8b4fe;background:rgba(168,85,247,.1);border-radius:10px;padding:10px 12px;line-height:1.6}
+
+/* 4-col nt-big-row override for large screens */
+@media(min-width:420px){.nt-big-row{grid-template-columns:1fr 1fr 1fr 1fr}}
+
+/* Running net column tag */
+.tag-pass{background:rgba(34,197,94,.18);color:#4ade80;border:1px solid rgba(34,197,94,.3);padding:2px 8px;border-radius:6px;font-size:11px;font-weight:800;white-space:nowrap}
+.tag-fail{background:rgba(239,68,68,.18);color:#f87171;border:1px solid rgba(239,68,68,.3);padding:2px 8px;border-radius:6px;font-size:11px;font-weight:800;white-space:nowrap}
+
+/* ══════════════════════════════════════
+   THEME TOGGLE & LIGHT THEME
+══════════════════════════════════════ */
+.header-right{display:flex;align-items:center;gap:8px}
+.theme-btn{
+  display:inline-flex;align-items:center;gap:5px;
+  background:var(--card2);border:1px solid var(--border2);
+  color:var(--text);border-radius:999px;padding:5px 11px;
+  font-family:inherit;font-size:11px;font-weight:700;cursor:pointer;
+  transition:transform .15s, background .2s, border-color .2s;
+}
+.theme-btn:active{transform:scale(.94)}
+
+html[data-theme="light"]{
+  --bg:#f3f5fb;
+  --surface:#ffffff;
+  --card:#ffffff;
+  --card2:#eef2f8;
+  --border:rgba(15,23,42,0.09);
+  --border2:rgba(15,23,42,0.16);
+  --text:#0f172a;
+  --muted:#64748b;
+  --muted2:#94a3b8;
+  --aa-glow:rgba(168,85,247,.16);
+  --bb-glow:rgba(59,130,246,.16);
+}
+html[data-theme="light"] body::before{
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 10%,rgba(168,85,247,.10) 0%,transparent 55%),
+    radial-gradient(ellipse 55% 40% at 85% 85%,rgba(59,130,246,.09) 0%,transparent 55%);
+}
+html[data-theme="light"] .top-header{background:rgba(255,255,255,0.88)}
+html[data-theme="light"] .bottom-nav{background:rgba(255,255,255,0.94);box-shadow:0 -4px 20px rgba(15,23,42,0.06)}
+html[data-theme="light"] .card,
+html[data-theme="light"] .stat-box,
+html[data-theme="light"] .l2-card{box-shadow:0 4px 18px rgba(15,23,42,0.05)}
+html[data-theme="light"] thead th{background:rgba(15,23,42,0.04)}
+html[data-theme="light"] .c-aa{color:#7c3aed}
+html[data-theme="light"] .c-bb{color:#2563eb}
+html[data-theme="light"] .chip-aa{background:rgba(124,58,237,.12);color:#6d28d9;border-color:rgba(124,58,237,.3)}
+html[data-theme="light"] .chip-bb{background:rgba(37,99,235,.12);color:#1d4ed8;border-color:rgba(37,99,235,.3)}
+html[data-theme="light"] .chip-none{color:rgba(15,23,42,.25)}
+html[data-theme="light"] .inv-input{background:#f8fafc;color:var(--text)}
+html[data-theme="light"] .pct-pill,
+html[data-theme="light"] .g-pill{background:#f1f5f9;color:var(--muted)}
+html[data-theme="light"] .pct-pill.active{background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff}
+html[data-theme="light"] .g-pill.active{background:rgba(124,58,237,.15);color:#6d28d9;border-color:#7c3aed}
+html[data-theme="light"] .next-turn-hero{background:linear-gradient(145deg,rgba(168,85,247,.10),rgba(59,130,246,.08));border-color:rgba(124,58,237,.25)}
+html[data-theme="light"] .nt-turn-badge{background:rgba(124,58,237,.14);border-color:rgba(124,58,237,.3);color:#6d28d9}
+html[data-theme="light"] .nt-box{background:rgba(255,255,255,.88)}
+html[data-theme="light"] .nt-formula{background:rgba(124,58,237,.08);color:#5b21b6}
+html[data-theme="light"] .nt-loss-pill{color:#dc2626}
+html[data-theme="light"] .hist-badge-pass{background:rgba(22,163,74,.12);color:#15803d;border-color:rgba(22,163,74,.3)}
+html[data-theme="light"] .hist-badge-fail{background:rgba(220,38,38,.12);color:#b91c1c;border-color:rgba(220,38,38,.3)}
+html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(15,23,42,.18)}
   </style>
 </head>
 <body>
@@ -368,9 +526,15 @@ tbody tr:active td{background:rgba(255,255,255,.04)}
       <p>November 2026</p>
     </div>
   </div>
-  <div class="live-pill">
-    <div class="live-dot"></div>
-    <span id="live-txt">Live</span>
+  <div class="header-right">
+    <button type="button" class="theme-btn" id="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle Light/Dark Theme">
+      <span id="theme-icon">☀️</span>
+      <span id="theme-label">Light</span>
+    </button>
+    <div class="live-pill">
+      <div class="live-dot"></div>
+      <span id="live-txt">Live</span>
+    </div>
   </div>
 </div>
 
@@ -479,6 +643,322 @@ tbody tr:active td{background:rgba(255,255,255,.04)}
 
 </div>
 
+<!-- PAGE 5: INVEST PLAN -->
+<div class="page" id="pg-invest">
+
+  <!-- KPI Summary Row -->
+  <div class="inv-kpi-grid">
+    <div class="inv-kpi">
+      <div class="inv-kpi-label">Net P/L (Kul Hisab)</div>
+      <div class="inv-kpi-val" id="kpi-net">₹0</div>
+      <div class="inv-kpi-sub" id="kpi-loss-state">No active loss</div>
+    </div>
+    <div class="inv-kpi">
+      <div class="inv-kpi-label">Total Invested</div>
+      <div class="inv-kpi-val" style="color:#93c5fd" id="kpi-invested">₹0</div>
+      <div class="inv-kpi-sub" id="kpi-turns">0 Turns (0P / 0F)</div>
+    </div>
+    <div class="inv-kpi">
+      <div class="inv-kpi-label">Total Won</div>
+      <div class="inv-kpi-val" style="color:#4ade80" id="kpi-won">₹0</div>
+      <div class="inv-kpi-sub" id="kpi-winrate">Win Rate: 0%</div>
+    </div>
+    <div class="inv-kpi">
+      <div class="inv-kpi-label">Recovery %</div>
+      <div class="inv-kpi-val" style="color:#fbbf24" id="kpi-pct">4.5%</div>
+      <div class="inv-kpi-sub" id="kpi-rounding">Round: Nearest ₹</div>
+    </div>
+  </div>
+
+  <!-- Settings Card -->
+  <div class="card">
+    <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:10px">⚙️ Plan Settings</div>
+    <div class="inv-grid3">
+      <div class="inv-field">
+        <label>Jodi (Numbers)</label>
+        <input type="number" class="inv-input" id="inv-jodi" value="22" min="1" max="100"/>
+      </div>
+      <div class="inv-field">
+        <label>Base Unit (₹)</label>
+        <input type="number" class="inv-input" id="inv-base" value="10" min="1"/>
+      </div>
+      <div class="inv-field">
+        <label>Payout (x Guna)</label>
+        <input type="number" class="inv-input" id="inv-mult" value="90" min="1"/>
+      </div>
+    </div>
+
+    <div class="inv-field" style="margin-bottom:6px">
+      <label>Loss Recovery % (Purane Loss Ka % = Next Per Unit)</label>
+    </div>
+    <div class="pct-pills">
+      <button type="button" class="pct-pill active" data-pct="4.5">4.5%</button>
+      <button type="button" class="pct-pill" data-pct="2.2">2.2%</button>
+      <button type="button" class="pct-pill" data-pct="custom">Custom %</button>
+    </div>
+    <div id="custom-pct-wrap" style="display:none;margin-top:8px;margin-bottom:4px">
+      <div class="inv-field">
+        <label>Custom % डालें</label>
+        <input type="number" step="0.1" class="inv-input" id="inv-custom-pct" value="3.5" min="0.1" max="100"/>
+      </div>
+    </div>
+
+    <div class="inv-field" style="margin-top:8px">
+      <label>Rounding Option (Round Figure)</label>
+      <select class="inv-input" id="inv-rounding" style="height:40px">
+        <option value="round">Round Figure – Nearest ₹ (9.9→10, 67.5→68)</option>
+        <option value="ceil">Round Up (Ceil – 9.1→10)</option>
+        <option value="exact">Exact Decimal (67.50)</option>
+      </select>
+    </div>
+
+    <div class="inv-field">
+      <label>Game Select करें</label>
+      <div class="game-pills" id="inv-game-pills">
+        <button type="button" class="g-pill active" data-g="DS">Desawer</button>
+        <button type="button" class="g-pill" data-g="FB">Faridabad</button>
+        <button type="button" class="g-pill" data-g="GB">Gaziabad</button>
+        <button type="button" class="g-pill" data-g="GL">Gali</button>
+        <button type="button" class="g-pill" data-g="Other">Other</button>
+      </div>
+    </div>
+
+    <div class="inv-field" style="margin-top:4px">
+      <label>Is Turn ka Per Unit (₹) — Auto (ya Manual Edit)</label>
+      <input type="number" class="inv-input" id="inv-unit-override" value="10" min="0.1" step="any"/>
+    </div>
+  </div>
+
+  <!-- Live Next Turn Hero -->
+  <div class="next-turn-hero">
+    <div class="nt-top">
+      <span class="nt-turn-badge" id="nt-turn-label">TURN #1</span>
+      <span class="nt-loss-pill" id="nt-cycle-loss">Cycle Loss: ₹0</span>
+    </div>
+    <div class="nt-big-row">
+      <div class="nt-box">
+        <div class="nt-box-lbl">Per Unit Lagaye</div>
+        <div class="nt-box-val c-aa" id="nt-unit-val">₹10</div>
+        <div class="nt-box-sub" id="nt-unit-exact">Base Unit (No Loss)</div>
+      </div>
+      <div class="nt-box">
+        <div class="nt-box-lbl">Total Invest</div>
+        <div class="nt-box-val c-bb" id="nt-invest-val">₹220</div>
+        <div class="nt-box-sub" id="nt-jodi-mult">22 × ₹10</div>
+      </div>
+      <div class="nt-box">
+        <div class="nt-box-lbl">If PASS Win</div>
+        <div class="nt-box-val" style="color:#4ade80" id="nt-win-gross">₹900</div>
+        <div class="nt-box-sub" id="nt-net-on-pass">Turn Net: +₹680</div>
+      </div>
+      <div class="nt-box">
+        <div class="nt-box-lbl">Overall After Pass</div>
+        <div class="nt-box-val" style="color:#4ade80" id="nt-overall-pass">+₹680</div>
+        <div class="nt-box-sub" id="nt-after-fail">If Fail: Loss ₹220</div>
+      </div>
+    </div>
+    <div class="nt-formula" id="nt-formula-box">
+      Turn #1: Base unit ₹10 × 22 Jodi = ₹220 invest
+    </div>
+    <div class="btn-row">
+      <button type="button" class="btn-pass" id="inv-btn-pass">✅ PASS (Jeet Gaye!)</button>
+      <button type="button" class="btn-fail" id="inv-btn-fail">❌ FAIL (Loss Hua)</button>
+    </div>
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="mini-actions">
+    <button type="button" class="btn-sm" id="inv-btn-undo">↩️ Undo</button>
+    <button type="button" class="btn-sm" id="inv-btn-export">⬇️ CSV</button>
+    <button type="button" class="btn-sm" id="inv-btn-resetloss">🔄 Reset Loss</button>
+    <button type="button" class="btn-sm danger" id="inv-btn-clear">🗑️ Clear All</button>
+  </div>
+
+  <!-- Quick Loss Checker -->
+  <div class="sec-label">🧮 Quick Loss Checker (किसी भी Loss का Next Unit देखें)</div>
+  <div class="card">
+    <div class="inv-grid2" style="margin-bottom:8px">
+      <div class="inv-field" style="margin-bottom:0">
+        <label>Total Loss (₹) डालें</label>
+        <input type="number" class="inv-input" id="qlc-loss" value="1500" min="0"/>
+      </div>
+      <div class="inv-field" style="margin-bottom:0">
+        <label>Check % (जो % चाहें)</label>
+        <input type="number" step="0.1" class="inv-input" id="qlc-pct" value="4.5" min="0.1"/>
+      </div>
+    </div>
+    <div class="inv-qlc-result" id="qlc-output">
+      <span style="color:var(--muted)">👆 Loss और % डालें → Exact unit दिखेगा</span>
+    </div>
+  </div>
+
+  <!-- Tabs: History / 10-Turn Projection -->
+  <div class="inv-tabs">
+    <button type="button" class="inv-tab-btn active" data-itab="history">📜 History</button>
+    <button type="button" class="inv-tab-btn" data-itab="projection">📈 10-Turn Projection</button>
+  </div>
+
+  <!-- History Tab -->
+  <div id="itab-history">
+    <div class="card" style="padding:0;overflow:hidden">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr>
+            <th>#</th>
+            <th>Date &amp; Time</th>
+            <th>Game</th>
+            <th>Jodi</th>
+            <th>Per Unit</th>
+            <th>Invest</th>
+            <th>Result</th>
+            <th>Win</th>
+            <th>Turn Net</th>
+            <th>Running Net</th>
+            <th>Del</th>
+          </tr></thead>
+          <tbody id="inv-hist-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Projection Tab -->
+  <div id="itab-projection" style="display:none">
+    <div style="font-size:11px;color:var(--muted);margin-bottom:10px;padding:9px 11px;background:rgba(99,102,241,.07);border-radius:11px;border:1px solid rgba(99,102,241,.18)">
+      📊 Agar lagatar game FAIL hota rahe to current loss aur selected % ke hisab se agle 10 turns ka plan:
+    </div>
+    <div class="card" style="padding:0;overflow:hidden">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr>
+            <th>Turn #</th>
+            <th>Prev Loss</th>
+            <th>Exact Unit</th>
+            <th>Used Unit</th>
+            <th>Total Invest</th>
+            <th>If PASS Win</th>
+            <th>Net If Pass</th>
+            <th>New Loss If Fail</th>
+          </tr></thead>
+          <tbody id="inv-proj-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- PAGE 6: DATA ENTRY -->
+<div class="page" id="pg-data">
+
+  <div class="sec-label">➕ नया Result Add करें (Nov 25+)</div>
+  <div class="card" style="margin-bottom:14px">
+    <div style="font-size:11px;color:var(--muted);margin-bottom:14px;line-height:1.6;padding:9px 11px;background:rgba(168,85,247,.07);border-radius:11px;border:1px solid rgba(168,85,247,.15)">
+      💡 यहाँ रोज़ का नया result डालें — App automatically Home, Table, Analysis सब update हो जाएगा। Data phone में save रहेगा।
+    </div>
+
+    <div class="inv-grid2" style="margin-bottom:12px">
+      <div class="inv-field">
+        <label>Date (November 2026)</label>
+        <input type="number" class="inv-input" id="de-date" value="25" min="1" max="30" placeholder="25"/>
+      </div>
+      <div style="display:flex;align-items:flex-end;padding-bottom:2px">
+        <div id="de-exists-warn" style="font-size:11px;color:#fbbf24;display:none">⚠️ यह date पहले से है</div>
+      </div>
+    </div>
+
+    <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:8px">Numbers (XX = अभी नहीं आया)</div>
+    <div class="inv-grid2" style="margin-bottom:12px">
+      <div class="inv-field">
+        <label style="color:var(--ds)">🟣 Desawer (DS)</label>
+        <input type="text" class="inv-input" id="de-ds" placeholder="जैसे 44 या XX"/>
+      </div>
+      <div class="inv-field">
+        <label style="color:var(--fb)">🔵 Faridabad (FB)</label>
+        <input type="text" class="inv-input" id="de-fb" placeholder="जैसे 67 या XX"/>
+      </div>
+      <div class="inv-field">
+        <label style="color:var(--gb)">🟡 Gaziabad (GB)</label>
+        <input type="text" class="inv-input" id="de-gb" placeholder="जैसे 15 या XX"/>
+      </div>
+      <div class="inv-field">
+        <label style="color:var(--gl)">🟢 Gali (GL)</label>
+        <input type="text" class="inv-input" id="de-gl" placeholder="जैसे 82 या XX"/>
+      </div>
+    </div>
+
+    <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:8px">AA / BB Markers</div>
+    <div class="inv-grid2">
+      <div class="inv-field">
+        <label style="color:var(--ds)">DS Marker</label>
+        <select class="inv-input" id="de-dsM">
+          <option value="-">— (None)</option>
+          <option value="AA">AA</option>
+          <option value="BB">BB</option>
+          <option value="_">_ (Pending)</option>
+        </select>
+      </div>
+      <div class="inv-field">
+        <label style="color:var(--fb)">FB Marker</label>
+        <select class="inv-input" id="de-fbM">
+          <option value="-">— (None)</option>
+          <option value="AA">AA</option>
+          <option value="BB">BB</option>
+          <option value="_">_ (Pending)</option>
+        </select>
+      </div>
+      <div class="inv-field">
+        <label style="color:var(--gb)">GB Marker</label>
+        <select class="inv-input" id="de-gbM">
+          <option value="-">— (None)</option>
+          <option value="AA">AA</option>
+          <option value="BB">BB</option>
+          <option value="_">_ (Pending)</option>
+        </select>
+      </div>
+      <div class="inv-field">
+        <label style="color:var(--gl)">GL Marker</label>
+        <select class="inv-input" id="de-glM">
+          <option value="-">— (None)</option>
+          <option value="AA">AA</option>
+          <option value="BB">BB</option>
+          <option value="_">_ (Pending)</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;display:flex;gap:10px">
+      <button type="button" class="btn-pass" style="flex:2;font-size:14px" onclick="addDayEntry()">✅ Save & Update App</button>
+      <button type="button" class="btn-sm" style="flex:1" onclick="clearDeForm()">🔄 Clear</button>
+    </div>
+    <div id="de-msg" style="margin-top:10px;font-size:12px;text-align:center;min-height:20px"></div>
+  </div>
+
+  <div class="sec-label">📋 Custom Entries (Phone में Saved)</div>
+  <div class="card">
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr>
+          <th>Date</th>
+          <th class="c-ds">DS</th>
+          <th class="c-fb">FB</th>
+          <th class="c-gb">GB</th>
+          <th class="c-gl">GL</th>
+          <th>DS M</th>
+          <th>FB M</th>
+          <th>GB M</th>
+          <th>GL M</th>
+          <th>Del</th>
+        </tr></thead>
+        <tbody id="de-hist-body">
+          <tr><td colspan="10" style="text-align:center;color:var(--muted);padding:16px">कोई custom entry नहीं है</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
 <!-- ══ BOTTOM NAV ══ -->
 <nav class="bottom-nav">
   <button class="nav-item active" data-page="pg-home" onclick="navTo('pg-home',this)">
@@ -496,6 +976,14 @@ tbody tr:active td{background:rgba(255,255,255,.04)}
   <button class="nav-item" data-page="pg-analysis" onclick="navTo('pg-analysis',this)">
     <span class="nav-icon">📆</span>
     <span>Analysis</span>
+  </button>
+  <button class="nav-item" data-page="pg-invest" onclick="navTo('pg-invest',this)">
+    <span class="nav-icon">💰</span>
+    <span>Invest</span>
+  </button>
+  <button class="nav-item" data-page="pg-data" onclick="navTo('pg-data',this)">
+    <span class="nav-icon">➕</span>
+    <span>Data</span>
   </button>
 </nav>
 
@@ -522,7 +1010,10 @@ function navTo(id, btn){
 // ════════════════════════════════════════
 //  DATA — November 2026
 // ════════════════════════════════════════
-const RAW = [
+// ════════════════════════════════════════
+//  HARDCODED BASE DATA — November 2026 (Day 1-24)
+// ════════════════════════════════════════
+const RAW_BASE = [
   {d:1,  DS:'XX',FB:77,  GB:63,  GL:82,  dsM:'_', fbM:'AA',gbM:'-', glM:'-'},
   {d:2,  DS:64,  FB:20,  GB:79,  GL:78,  dsM:'-', fbM:'BB',gbM:'-', glM:'-'},
   {d:3,  DS:99,  FB:51,  GB:15,  GL:74,  dsM:'AA',fbM:'AA',gbM:'AA',glM:'-'},
@@ -549,6 +1040,20 @@ const RAW = [
   {d:24, DS:44,  FB:'XX',GB:'XX',GL:'XX',dsM:'BB',fbM:'_', gbM:'_', glM:'_'},
 ];
 
+// ════ Load custom entries from localStorage and merge ════
+const DE_KEY = 'sk_custom_days_v1';
+function loadCustomDays(){ try{ return JSON.parse(localStorage.getItem(DE_KEY)||'[]'); }catch(e){ return []; }}
+function saveCustomDays(arr){ try{ localStorage.setItem(DE_KEY, JSON.stringify(arr)); }catch(e){} }
+
+function buildRAW(){
+  const custom = loadCustomDays();
+  const baseMap = {};
+  RAW_BASE.forEach(r => { baseMap[r.d] = r; });
+  custom.forEach(r => { baseMap[r.d] = r; }); // custom overrides base
+  return Object.values(baseMap).sort((a,b) => a.d - b.d);
+}
+let RAW = buildRAW();
+
 const GAMES = [
   {key:'DS',label:'Desawer',short:'DS',mKey:'dsM',cls:'ds',color:'#a855f7'},
   {key:'FB',label:'Faridabad',short:'FB',mKey:'fbM',cls:'fb',color:'#3b82f6'},
@@ -557,8 +1062,23 @@ const GAMES = [
 ];
 
 const isNum = v => typeof v === 'number';
-const validRows = RAW.filter(r => r.DS!=='XX' && r.FB!=='XX' && r.GB!=='XX' && r.GL!=='XX');
-const last4 = validRows.slice(-4);
+let validRows = RAW.filter(r => r.DS!=='XX' && r.FB!=='XX' && r.GB!=='XX' && r.GL!=='XX');
+let last4 = validRows.slice(-4);
+
+// ════ Rebuild all UI after data change ════
+function rebuildAllSections(){
+  RAW = buildRAW();
+  validRows = RAW.filter(r => r.DS!=='XX' && r.FB!=='XX' && r.GB!=='XX' && r.GL!=='XX');
+  last4 = validRows.slice(-4);
+  buildNumTable();
+  buildHiLo();
+  buildAABBTable();
+  buildCountBanner();
+  buildPrediction();
+  buildStreak();
+  buildAnalysis();
+  buildDEHistTable();
+}
 
 // ════ helpers ════
 function chipHtml(m){
@@ -567,88 +1087,63 @@ function chipHtml(m){
   return `<span class="chip-none">—</span>`;
 }
 
-// ════════════════════════════════════════
-//  PAGE 1 — HOME
-// ════════════════════════════════════════
-(function(){
-  // Count totals
+// ═══ Named builder stubs (called by IIFE + rebuildAllSections) ═══
+function buildNumTable(){
   let totAA=0, totBB=0;
   const aaCounts={}, bbCounts={};
   GAMES.forEach(g=>{ aaCounts[g.key]=0; bbCounts[g.key]=0; });
-  RAW.forEach(r => GAMES.forEach(g=>{
-    if(r[g.mKey]==='AA'){ totAA++; aaCounts[g.key]++; }
-    if(r[g.mKey]==='BB'){ totBB++; bbCounts[g.key]++; }
+  RAW.forEach(r=>GAMES.forEach(g=>{
+    if(r[g.mKey]==='AA'){totAA++;aaCounts[g.key]++;}
+    if(r[g.mKey]==='BB'){totBB++;bbCounts[g.key]++;}
   }));
-  document.getElementById('total-aa').textContent = totAA;
-  document.getElementById('total-bb').textContent = totBB;
-  document.getElementById('aa-breakdown').innerHTML =
-    GAMES.map(g=>`<span class="c-${g.cls}">${g.short}:${aaCounts[g.key]}</span>`).join(' ');
-  document.getElementById('bb-breakdown').innerHTML =
-    GAMES.map(g=>`<span class="c-${g.cls}">${g.short}:${bbCounts[g.key]}</span>`).join(' ');
-
-  // Summary pills
-  const pills = document.getElementById('summary-pills');
-  const lastDay = RAW[RAW.length-1];
-  pills.innerHTML = `
-    <div class="sum-pill">📅 24 दिन का data</div>
+  document.getElementById('total-aa').textContent=totAA;
+  document.getElementById('total-bb').textContent=totBB;
+  document.getElementById('aa-breakdown').innerHTML=GAMES.map(g=>`<span class="c-${g.cls}">${g.short}:${aaCounts[g.key]}</span>`).join(' ');
+  document.getElementById('bb-breakdown').innerHTML=GAMES.map(g=>`<span class="c-${g.cls}">${g.short}:${bbCounts[g.key]}</span>`).join(' ');
+  document.getElementById('summary-pills').innerHTML=`
+    <div class="sum-pill">📅 ${RAW.length} दिन का data</div>
     <div class="sum-pill">🗓️ Nov ${RAW[RAW.length-1].d} latest</div>
     <div class="sum-pill c-aa">AA: ${totAA} बार</div>
-    <div class="sum-pill c-bb">BB: ${totBB} बार</div>
-  `;
-
-  // Numeric table (last 4)
-  const tbody = document.getElementById('num-body');
-  const allVals = [];
-  last4.forEach(r => GAMES.forEach(g=>{ if(isNum(r[g.key])) allVals.push(r[g.key]); }));
-  const gMax = Math.max(...allVals), gMin = Math.min(...allVals);
-  last4.forEach(r => {
-    const tr = document.createElement('tr');
-    let cells = `<td><b>Nov ${r.d}</b></td>`;
-    GAMES.forEach(g => {
-      const v = isNum(r[g.key]) ? r[g.key] : null;
-      let cls = `c-${g.cls}`;
-      if(v===gMax) cls+=' hi-cell';
-      if(v===gMin) cls+=' lo-cell';
-      cells += `<td class="${cls}" style="font-size:16px">${v??'XX'}</td>`;
+    <div class="sum-pill c-bb">BB: ${totBB} बार</div>`;
+  const tbody=document.getElementById('num-body');
+  tbody.innerHTML='';
+  const allVals=[];
+  last4.forEach(r=>GAMES.forEach(g=>{if(isNum(r[g.key]))allVals.push(r[g.key]);}));
+  const gMax=Math.max(...allVals),gMin=Math.min(...allVals);
+  last4.forEach(r=>{
+    const tr=document.createElement('tr');
+    let cells=`<td><b>Nov ${r.d}</b></td>`;
+    GAMES.forEach(g=>{
+      const v=isNum(r[g.key])?r[g.key]:null;
+      let cls=`c-${g.cls}`;
+      if(v===gMax)cls+=' hi-cell';
+      if(v===gMin)cls+=' lo-cell';
+      cells+=`<td class="${cls}" style="font-size:16px">${v??'XX'}</td>`;
     });
-    tr.innerHTML = cells;
+    tr.innerHTML=cells;
     tbody.appendChild(tr);
   });
-
-  // HiLo cards
-  const hcont = document.getElementById('hilo-container');
-  GAMES.forEach(g => {
-    const vals = last4.map(r=>({v:r[g.key],d:r.d})).filter(x=>isNum(x.v));
-    const hi = vals.reduce((a,b)=>b.v>a.v?b:a);
-    const lo = vals.reduce((a,b)=>b.v<a.v?b:a);
-    const div = document.createElement('div');
-    div.className = `hilo-card glow-${g.cls}`;
-    div.innerHTML = `
-      <div class="hilo-game-label c-${g.cls}">${g.label}</div>
+  document.getElementById('live-txt').textContent=`Nov 2026 · ${validRows.length}d`;
+}
+function buildHiLo(){
+  const hcont=document.getElementById('hilo-container');
+  hcont.innerHTML='';
+  GAMES.forEach(g=>{
+    const vals=last4.map(r=>({v:r[g.key],d:r.d})).filter(x=>isNum(x.v));
+    if(!vals.length)return;
+    const hi=vals.reduce((a,b)=>b.v>a.v?b:a);
+    const lo=vals.reduce((a,b)=>b.v<a.v?b:a);
+    const div=document.createElement('div');
+    div.className=`hilo-card glow-${g.cls}`;
+    div.innerHTML=`<div class="hilo-game-label c-${g.cls}">${g.label}</div>
       <div class="hilo-rows">
-        <div class="hilo-box">
-          <div class="hilo-emoji">🔺</div>
-          <div class="hilo-label" style="color:#4ade80">सबसे ज़्यादा</div>
-          <div class="hilo-num" style="color:${g.color}">${hi.v}</div>
-          <div class="hilo-date">Nov ${hi.d}</div>
-        </div>
-        <div class="hilo-box">
-          <div class="hilo-emoji">🔻</div>
-          <div class="hilo-label" style="color:#f87171">सबसे कम</div>
-          <div class="hilo-num" style="color:#ef4444">${lo.v}</div>
-          <div class="hilo-date">Nov ${lo.d}</div>
-        </div>
+        <div class="hilo-box"><div class="hilo-emoji">🔺</div><div class="hilo-label" style="color:#4ade80">सबसे ज़्यादा</div><div class="hilo-num" style="color:${g.color}">${hi.v}</div><div class="hilo-date">Nov ${hi.d}</div></div>
+        <div class="hilo-box"><div class="hilo-emoji">🔻</div><div class="hilo-label" style="color:#f87171">सबसे कम</div><div class="hilo-num" style="color:#ef4444">${lo.v}</div><div class="hilo-date">Nov ${lo.d}</div></div>
       </div>`;
     hcont.appendChild(div);
   });
-
-  document.getElementById('live-txt').textContent = `Nov 2026 · ${validRows.length}d`;
-})();
-
-// ════════════════════════════════════════
-//  PAGE 2 — TABLE
-// ════════════════════════════════════════
-(function(){
+}
+function buildAABBTable(){
   let totAA=0,totBB=0;
   const aaCounts={},bbCounts={};
   GAMES.forEach(g=>{aaCounts[g.key]=0;bbCounts[g.key]=0;});
@@ -656,207 +1151,557 @@ function chipHtml(m){
     if(r[g.mKey]==='AA'){totAA++;aaCounts[g.key]++;}
     if(r[g.mKey]==='BB'){totBB++;bbCounts[g.key]++;}
   }));
-
-  document.getElementById('cb-aa').textContent = totAA;
-  document.getElementById('cb-bb').textContent = totBB;
-
-  // Per-game grid
-  const pgr = document.getElementById('pgr-grid');
-  GAMES.forEach(g=>{
-    pgr.innerHTML += `<div>
-      <div class="pgr-label c-${g.cls}">${g.short}</div>
-      <div class="pgr-aa">${aaCounts[g.key]}</div>
-      <div class="pgr-bb">${bbCounts[g.key]}</div>
-    </div>`;
-  });
-
-  // Full table
-  const tbody = document.getElementById('aabb-body');
+  if(document.getElementById('cb-aa')) document.getElementById('cb-aa').textContent=totAA;
+  if(document.getElementById('cb-bb')) document.getElementById('cb-bb').textContent=totBB;
+  const tbody=document.getElementById('aabb-body');
+  tbody.innerHTML='';
   RAW.forEach(r=>{
-    const tr = document.createElement('tr');
-    if(r.d===24) tr.className='today-row';
-    tr.innerHTML = `
-      <td><b>Nov ${r.d}</b></td>
-      <td>${chipHtml(r.dsM)}</td>
-      <td>${chipHtml(r.fbM)}</td>
-      <td>${chipHtml(r.gbM)}</td>
-      <td>${chipHtml(r.glM)}</td>`;
+    const tr=document.createElement('tr');
+    const isLast=r.d===RAW[RAW.length-1].d;
+    if(isLast) tr.className='today-row';
+    tr.innerHTML=`<td><b>Nov ${r.d}</b>${r._custom?'<span style="font-size:9px;color:#fbbf24;margin-left:4px">NEW</span>':''}</td>
+      <td>${chipHtml(r.dsM)}</td><td>${chipHtml(r.fbM)}</td><td>${chipHtml(r.gbM)}</td><td>${chipHtml(r.glM)}</td>`;
     tbody.appendChild(tr);
   });
-
-  // Totals row
-  const tot = document.createElement('tr');
+  const tot=document.createElement('tr');
   tot.style.background='rgba(255,255,255,.025)';
   tot.style.borderTop='2px solid rgba(255,255,255,.12)';
-  let tc=`<td style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--muted)">Total</td>`;
-  GAMES.forEach(g=>{
-    tc+=`<td><span class="chip chip-aa" style="font-size:10px;padding:2px 6px">${aaCounts[g.key]}</span> <span class="chip chip-bb" style="font-size:10px;padding:2px 6px">${bbCounts[g.key]}</span></td>`;
-  });
+  let tc=`<td style="font-size:10px;font-weight:800;text-transform:uppercase;color:var(--muted)">Total</td>`;
+  GAMES.forEach(g=>{tc+=`<td><span class="chip chip-aa" style="font-size:10px;padding:2px 6px">${aaCounts[g.key]}</span> <span class="chip chip-bb" style="font-size:10px;padding:2px 6px">${bbCounts[g.key]}</span></td>`;});
   tot.innerHTML=tc;
   tbody.appendChild(tot);
-})();
-
-// ════════════════════════════════════════
-//  PAGE 3 — PREDICTION
-// ════════════════════════════════════════
-(function(){
-  const pcont = document.getElementById('pred-container');
-  const scont = document.getElementById('streak-container');
-
+}
+function buildCountBanner(){}
+function buildPrediction(){
+  const pcont=document.getElementById('pred-container');
+  if(!pcont)return;
+  pcont.innerHTML='';
   GAMES.forEach(g=>{
-    const markers = RAW.map(r=>({d:r.d,m:r[g.mKey]})).filter(x=>x.m==='AA'||x.m==='BB'||x.m==='-');
-    const last8 = markers.slice(-8);
-    const aaC = last8.filter(x=>x.m==='AA').length;
-    const bbC = last8.filter(x=>x.m==='BB').length;
-    const none = last8.filter(x=>x.m==='-').length;
-
-    // Prediction logic
+    const markers=RAW.map(r=>({d:r.d,m:r[g.mKey]})).filter(x=>x.m==='AA'||x.m==='BB'||x.m==='-');
+    const last8=markers.slice(-8);
+    const aaC=last8.filter(x=>x.m==='AA').length;
+    const bbC=last8.filter(x=>x.m==='BB').length;
+    const none=last8.filter(x=>x.m==='-').length;
     let predicted,badgeCls,probAA,probBB,reason;
-    if(aaC===0&&bbC===0){
-      predicted='?';badgeCls='tie';probAA=50;probBB=50;
-      reason='पिछले 8 बार में ना AA ना BB आया। Prediction संभव नहीं।';
-    } else if(aaC===bbC){
-      predicted='AA';badgeCls='aa';probAA=50;probBB=50;
-      reason=`AA और BB बराबर (${aaC}-${bbC})। Coin-flip situation।`;
-    } else if(aaC<bbC){
-      predicted='AA';badgeCls='aa';
-      const gap=bbC-aaC;
-      probAA=Math.min(55+gap*7,85);probBB=100-probAA;
-      reason=`पिछले 8 में AA: ${aaC}बार, BB: ${bbC}बार। AA कम आया → AA की संभावना ज़्यादा।`;
-    } else {
-      predicted='BB';badgeCls='bb';
-      const gap=aaC-bbC;
-      probBB=Math.min(55+gap*7,85);probAA=100-probBB;
-      reason=`पिछले 8 में BB: ${bbC}बार, AA: ${aaC}बार। BB कम आया → BB की संभावना ज़्यादा।`;
-    }
-
-    // Dots
-    const dotsHtml = last8.map(x=>{
-      const bg = x.m==='AA'?'#c084fc':x.m==='BB'?'#60a5fa':'rgba(255,255,255,0.08)';
-      const fg = x.m==='-'?'rgba(255,255,255,0.3)':'#0d0d1f';
-      return `<div class="dot" title="Nov ${x.d}: ${x.m}" style="background:${bg};color:${fg}">${x.m==='-'?'–':x.m}</div>`;
-    }).join('');
-
-    // Pred card
-    const pc = document.createElement('div');
+    if(aaC===0&&bbC===0){predicted='?';badgeCls='tie';probAA=50;probBB=50;reason='पिछले 8 बार में ना AA ना BB आया।';}
+    else if(aaC===bbC){predicted='AA';badgeCls='aa';probAA=50;probBB=50;reason=`AA और BB बराबर (${aaC}-${bbC})।`;}
+    else if(aaC<bbC){predicted='AA';badgeCls='aa';const gap=bbC-aaC;probAA=Math.min(55+gap*7,85);probBB=100-probAA;reason=`पिछले 8 में AA: ${aaC}बार, BB: ${bbC}बार → AA की संभावना ज़्यादा।`;}
+    else{predicted='BB';badgeCls='bb';const gap=aaC-bbC;probBB=Math.min(55+gap*7,85);probAA=100-probBB;reason=`पिछले 8 में BB: ${bbC}बार, AA: ${aaC}बार → BB की संभावना ज़्यादा।`;}
+    const dots=last8.map(x=>{const bg=x.m==='AA'?'#c084fc':x.m==='BB'?'#60a5fa':'rgba(255,255,255,0.08)';const fg=x.m==='-'?'rgba(255,255,255,0.3)':'#0d0d1f';return `<div class="dot" title="Nov ${x.d}: ${x.m}" style="background:${bg};color:${fg}">${x.m==='-'?'–':x.m}</div>`;}).join('');
+    const pc=document.createElement('div');
     pc.className=`pred-card glow-${g.cls}`;
     pc.style.setProperty('--pred-bg',g.color);
-    pc.innerHTML=`
-      <div class="pred-game-label c-${g.cls}">${g.label}</div>
+    pc.innerHTML=`<div class="pred-game-label c-${g.cls}">${g.label}</div>
       <div class="pred-sub">अगले turn में सबसे ज़्यादा संभावना</div>
-      <div class="pred-main">
-        <div class="pred-badge ${badgeCls}">${predicted}</div>
-        <div class="pred-info">
-          <div class="pred-info-label">Confidence</div>
-          <div class="pred-info-val" style="color:${badgeCls==='aa'?'#d8b4fe':badgeCls==='bb'?'#93c5fd':'var(--muted)'}">
-            ${badgeCls==='aa'?probAA:badgeCls==='bb'?probBB:50}%
-          </div>
-        </div>
-      </div>
+      <div class="pred-main"><div class="pred-badge ${badgeCls}">${predicted}</div>
+        <div class="pred-info"><div class="pred-info-label">Confidence</div>
+        <div class="pred-info-val" style="color:${badgeCls==='aa'?'#d8b4fe':badgeCls==='bb'?'#93c5fd':'var(--muted)'}">${badgeCls==='aa'?probAA:badgeCls==='bb'?probBB:50}%</div></div></div>
       <div class="pred-reason">📌 ${reason}</div>
-      <div class="prob-row">
-        <span class="prob-label-txt c-aa">AA</span>
-        <div class="prob-bar-bg"><div class="prob-fill" style="width:${probAA}%;background:#a855f7"></div></div>
-        <span class="prob-pct c-aa">${probAA}%</span>
-      </div>
-      <div class="prob-row">
-        <span class="prob-label-txt c-bb">BB</span>
-        <div class="prob-bar-bg"><div class="prob-fill" style="width:${probBB}%;background:#3b82f6"></div></div>
-        <span class="prob-pct c-bb">${probBB}%</span>
-      </div>
+      <div class="last8-row">${dots}</div>
+      <div class="prob-row"><span class="prob-label-txt c-aa">AA</span><div class="prob-bar-bg"><div class="prob-fill" style="width:${probAA}%;background:#a855f7"></div></div><span class="prob-pct c-aa">${probAA}%</span></div>
+      <div class="prob-row"><span class="prob-label-txt c-bb">BB</span><div class="prob-bar-bg"><div class="prob-fill" style="width:${probBB}%;background:#3b82f6"></div></div><span class="prob-pct c-bb">${probBB}%</span></div>
       <div style="font-size:10px;color:rgba(255,255,255,0.2);margin-top:10px">Last 8 → AA:${aaC} | BB:${bbC} | None:${none}</div>`;
     pcont.appendChild(pc);
-
-    // Streak card
-    const sc = document.createElement('div');
-    sc.className=`card glow-${g.cls}`;
-    sc.style.marginBottom='12px';
-    sc.innerHTML=`
-      <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px" class="c-${g.cls}">${g.label} — पिछले 8</div>
-      <div class="last8-row">${dotsHtml}</div>
-      <div class="streak-bar-row">
-        <span style="font-size:11px;color:#d8b4fe;min-width:22px;font-weight:700">AA</span>
-        <div class="streak-bar-bg"><div class="streak-bar-fill" style="width:${(aaC/8)*100}%;background:#a855f7"></div></div>
-        <span class="streak-label c-aa">AA: ${aaC}</span>
-      </div>
-      <div class="streak-bar-row">
-        <span style="font-size:11px;color:#93c5fd;min-width:22px;font-weight:700">BB</span>
-        <div class="streak-bar-bg"><div class="streak-bar-fill" style="width:${(bbC/8)*100}%;background:#3b82f6"></div></div>
-        <span class="streak-label c-bb">BB: ${bbC}</span>
-      </div>`;
+  });
+}
+function buildStreak(){
+  const scont=document.getElementById('streak-container');
+  if(!scont)return;
+  scont.innerHTML='';
+  GAMES.forEach(g=>{
+    const markers=RAW.map(r=>({d:r.d,m:r[g.mKey]})).filter(x=>x.m==='AA'||x.m==='BB'||x.m==='-');
+    const last8=markers.slice(-8);
+    const aaC=last8.filter(x=>x.m==='AA').length;
+    const bbC=last8.filter(x=>x.m==='BB').length;
+    const dots=last8.map(x=>{const bg=x.m==='AA'?'#c084fc':x.m==='BB'?'#60a5fa':'rgba(255,255,255,0.08)';const fg=x.m==='-'?'rgba(255,255,255,0.3)':'#0d0d1f';return `<div class="dot" title="Nov ${x.d}: ${x.m}" style="background:${bg};color:${fg}">${x.m==='-'?'–':x.m}</div>`;}).join('');
+    const sc=document.createElement('div');
+    sc.className=`card glow-${g.cls}`;sc.style.marginBottom='12px';
+    sc.innerHTML=`<div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px" class="c-${g.cls}">${g.label} — पिछले 8</div>
+      <div class="last8-row">${dots}</div>
+      <div class="streak-bar-row"><span style="font-size:11px;color:#d8b4fe;min-width:22px;font-weight:700">AA</span><div class="streak-bar-bg"><div class="streak-bar-fill" style="width:${(aaC/8)*100}%;background:#a855f7"></div></div><span class="streak-label c-aa">AA: ${aaC}</span></div>
+      <div class="streak-bar-row"><span style="font-size:11px;color:#93c5fd;min-width:22px;font-weight:700">BB</span><div class="streak-bar-bg"><div class="streak-bar-fill" style="width:${(bbC/8)*100}%;background:#3b82f6"></div></div><span class="streak-label c-bb">BB: ${bbC}</span></div>`;
     scont.appendChild(sc);
   });
-})();
-
-// ════════════════════════════════════════
-//  PAGE 4 — ANALYSIS (Last 2 & 4 days)
-// ════════════════════════════════════════
-(function(){
-  const validDays = RAW.filter(r=>GAMES.some(g=>r[g.mKey]==='AA'||r[g.mKey]==='BB'||r[g.mKey]==='-'));
-
-  function buildSection(daysArr, containerId, dayCount){
-    const cont = document.getElementById(containerId);
+}
+function buildAnalysis(){
+  const l2=document.getElementById('l2-container');
+  const l4=document.getElementById('l4-container');
+  if(!l2||!l4)return;
+  l2.innerHTML='';l4.innerHTML='';
+  const vd=RAW.filter(r=>GAMES.some(g=>r[g.mKey]==='AA'||r[g.mKey]==='BB'||r[g.mKey]==='-'));
+  function buildSection(daysArr,cont){
     ['AA','BB'].forEach(type=>{
-      const isBB = type==='BB';
-      const pillColor = isBB?'#93c5fd':'#d8b4fe';
-      const barColor  = isBB?'#3b82f6':'#a855f7';
-      const badgeCls  = isBB?'bb':'aa';
-
-      const gameCounts = GAMES.map(g=>({
-        game:g,
-        count:daysArr.filter(r=>r[g.mKey]===type).length,
-        days:daysArr.map(r=>({d:r.d,v:r[g.mKey]}))
-      }));
-      const maxC = Math.max(...gameCounts.map(x=>x.count));
-      const minC = Math.min(...gameCounts.map(x=>x.count));
-
-      const dayLabels = daysArr.map(r=>`Nov ${r.d}`).join(' & ');
-      const card = document.createElement('div');
-      card.className='l2-card';
-
+      const isBB=type==='BB';
+      const pillColor=isBB?'#93c5fd':'#d8b4fe';
+      const barColor=isBB?'#3b82f6':'#a855f7';
+      const badgeCls=isBB?'bb':'aa';
+      const gameCounts=GAMES.map(g=>({game:g,count:daysArr.filter(r=>r[g.mKey]===type).length,days:daysArr.map(r=>({d:r.d,v:r[g.mKey]}))}));
+      const maxC=Math.max(...gameCounts.map(x=>x.count));
+      const minC=Math.min(...gameCounts.map(x=>x.count));
+      const dayLabels=daysArr.map(r=>`Nov ${r.d}`).join(' & ');
       const sorted=[...gameCounts].sort((a,b)=>b.count-a.count);
-
       let rowsHtml='';
       sorted.forEach(item=>{
-        const isMax=item.count===maxC;
-        const isMin=item.count===minC&&maxC!==minC;
-        const dayChips = item.days.map(d=>{
-          const matched=d.v===type;
-          return matched
-            ? `<span class="chip chip-${type.toLowerCase()}">${type}</span>`
-            : `<span class="chip" style="background:rgba(255,255,255,.04);color:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.07)">—</span>`;
-        }).join('');
-        const rowClass=isMax?'l2-game-row row-winner':isMin?'l2-game-row row-loser':'l2-game-row';
-        rowsHtml+=`<div class="${rowClass}">
-          <div>
-            <div class="l2-game-name c-${item.game.cls}">${item.game.label}${isMax?' 👑':''}${isMin?' 🔻':''}</div>
-            <div class="l2-day-chips">${dayChips}</div>
-          </div>
-          <div>
-            <div class="l2-count-num" style="color:${item.count>0?barColor:'rgba(255,255,255,0.15)'}">${item.count}</div>
-            <div class="l2-count-label">${item.count===0?'नहीं आया':item.count===1?'1 बार':item.count+' बार'}</div>
-          </div>
-        </div>`;
+        const isMax=item.count===maxC,isMin=item.count===minC&&maxC!==minC;
+        const dayChips=item.days.map(d=>d.v===type?`<span class="chip chip-${type.toLowerCase()}">${type}</span>`:`<span class="chip" style="background:rgba(255,255,255,.04);color:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.07)">—</span>`).join('');
+        const rowClass=`l2-game-row${isMax?' row-winner':isMin?' row-loser':''}`;
+        rowsHtml+=`<div class="${rowClass}"><div><div class="l2-game-name c-${item.game.cls}">${item.game.label}${isMax?' 👑':''}${isMin?' 🔻':''}</div><div class="l2-day-chips">${dayChips}</div></div><div><div class="l2-count-num" style="color:${item.count>0?barColor:'rgba(255,255,255,0.15)'}">${item.count}</div><div class="l2-count-label">${item.count===0?'नहीं आया':item.count===1?'1 बार':item.count+' बार'}</div></div></div>`;
       });
-
-      const topG=sorted[0], botG=sorted[sorted.length-1];
-      const summaryTxt = maxC===minC
-        ? `ℹ️ सभी games में ${type} बराबर (${maxC} बार) आया`
-        : `🏆 ज़्यादा: <b style="color:${pillColor}">${topG.game.label}</b> (${topG.count}) &nbsp;|&nbsp; 🔻 कम: <b style="color:#ef4444">${botG.game.label}</b> (${botG.count})`;
-
-      card.innerHTML=`
-        <div class="l2-header">
-          <div class="l2-type-badge ${badgeCls}">${type}</div>
-          <div class="l2-days-label">${dayLabels}</div>
-        </div>
-        ${rowsHtml}
-        <div class="l2-summary">${summaryTxt}</div>`;
+      const topG=sorted[0],botG=sorted[sorted.length-1];
+      const summaryTxt=maxC===minC?`ℹ️ सभी games में ${type} बराबर (${maxC} बार) आया`:`🏆 ज़्यादा: <b style="color:${pillColor}">${topG.game.label}</b> (${topG.count}) &nbsp;|&nbsp; 🔻 कम: <b style="color:#ef4444">${botG.game.label}</b> (${botG.count})`;
+      const card=document.createElement('div');
+      card.className='l2-card';
+      card.innerHTML=`<div class="l2-header"><div class="l2-type-badge ${badgeCls}">${type}</div><div class="l2-days-label">${dayLabels}</div></div>${rowsHtml}<div class="l2-summary">${summaryTxt}</div>`;
       cont.appendChild(card);
     });
   }
+  buildSection(vd.slice(-2),l2);
+  buildSection(vd.slice(-4),l4);
+}
 
-  buildSection(validDays.slice(-2), 'l2-container', 2);
-  buildSection(validDays.slice(-4), 'l4-container', 4);
+// First render
+buildNumTable();
+buildHiLo();
+buildAABBTable();
+buildPrediction();
+buildStreak();
+buildAnalysis();
+buildDEHistTable();
+
+// ════════════════════════════════════════
+//  PAGE 5 — INVEST PLAN (Advanced v3)
+// ════════════════════════════════════════
+const INV_KEY = 'sk_invest_state_v1';
+
+const INV_DEFAULT = {
+  config: {
+    jodi: 22,
+    baseUnit: 10,
+    multiplier: 90,
+    pctMode: '4.5',
+    customPct: 4.5,
+    rounding: 'round',
+    game: 'DS'
+  },
+  history: []
+};
+
+let invState = (function(){
+  try {
+    const raw = localStorage.getItem(INV_KEY);
+    if(!raw) return JSON.parse(JSON.stringify(INV_DEFAULT));
+    const parsed = JSON.parse(raw);
+    // Migrate old format (flat) to new config object format
+    if(parsed.config) {
+      return { config:{...INV_DEFAULT.config,...parsed.config}, history: Array.isArray(parsed.history)?parsed.history:[] };
+    } else {
+      // Old flat format migration
+      return {
+        config:{
+          jodi: parsed.jodi||22, baseUnit: parsed.baseUnit||10,
+          multiplier: parsed.mult||90, pctMode: String(parsed.pctMode||'4.5'),
+          customPct: parsed.customPct||4.5, rounding:'round', game: parsed.game||'DS'
+        },
+        history: Array.isArray(parsed.history) ? parsed.history.map((h,i)=>({
+          id: (h.ts||Date.now()).toString(36)+i, timestamp: h.ts ? new Date(h.ts).toISOString() : new Date().toISOString(),
+          game: h.game||'DS', jodi: h.jodi||22, perUnit: h.unit||10,
+          invest: h.invest||0, result: h.isPass?'PASS':'FAIL',
+          win: h.win||0, turnNet: h.isPass?(h.win-h.invest):(-h.invest)
+        })) : []
+      };
+    }
+  } catch(e){ return JSON.parse(JSON.stringify(INV_DEFAULT)); }
+})();
+
+let invUnitManual = false;
+
+function saveInvState(){ try{ localStorage.setItem(INV_KEY, JSON.stringify(invState)); }catch(e){} }
+
+function invGetPct(){
+  const { pctMode, customPct } = invState.config;
+  if(pctMode === '4.5') return 4.5;
+  if(pctMode === '2.2') return 2.2;
+  const v = parseFloat(customPct);
+  return (Number.isFinite(v) && v > 0) ? v : 4.5;
+}
+
+function invApplyRound(val){
+  const mode = invState.config.rounding;
+  if(mode === 'ceil') return Math.max(1, Math.ceil(val));
+  if(mode === 'exact') return Math.max(0.1, Math.round(val*100)/100);
+  return Math.max(1, Math.round(val));
+}
+
+function fmtRs(n){
+  const sign = n < 0 ? '-' : '';
+  const abs = Math.abs(n);
+  const fmt = Number.isInteger(abs) ? abs.toLocaleString('en-IN') : abs.toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2});
+  return sign + '₹' + fmt;
+}
+
+function invComputeStats(){
+  let totalInvested=0, totalWon=0, passCount=0, failCount=0, runningNet=0;
+  const enriched = invState.history.map((item,idx)=>{
+    totalInvested += item.invest;
+    totalWon += item.win;
+    if(item.result==='PASS') passCount++; else failCount++;
+    runningNet += item.turnNet;
+    return {...item, turnNo: idx+1, runningNet};
+  });
+  const activeLoss = runningNet < 0 ? Math.abs(runningNet) : 0;
+  return {totalInvested, totalWon, passCount, failCount, runningNet, activeLoss, enriched};
+}
+
+function invCalcUnit(activeLoss){
+  if(activeLoss <= 0) return { exact: invState.config.baseUnit, used: invState.config.baseUnit, isRecovery: false };
+  const pct = invGetPct();
+  const exact = activeLoss * (pct / 100);
+  const used = invApplyRound(exact);
+  return { exact, used, isRecovery: true };
+}
+
+function invSyncConfig(){
+  const c = invState.config;
+  const jodiEl = document.getElementById('inv-jodi');
+  const baseEl = document.getElementById('inv-base');
+  const multEl = document.getElementById('inv-mult');
+  const roundEl = document.getElementById('inv-rounding');
+  const custEl = document.getElementById('inv-custom-pct');
+  if(jodiEl) jodiEl.value = c.jodi;
+  if(baseEl) baseEl.value = c.baseUnit;
+  if(multEl) multEl.value = c.multiplier;
+  if(roundEl) roundEl.value = c.rounding;
+  if(custEl){ custEl.value = c.customPct; custEl.parentElement.parentElement.style.display = c.pctMode==='custom'?'block':'none'; }
+  document.querySelectorAll('.pct-pill').forEach(b => b.classList.toggle('active', b.dataset.pct === c.pctMode));
+  document.querySelectorAll('#inv-game-pills .g-pill').forEach(b => b.classList.toggle('active', b.dataset.g === c.game));
+}
+
+function invRenderKPIs(stats){
+  const kpiNet = document.getElementById('kpi-net');
+  if(kpiNet){
+    kpiNet.textContent = (stats.runningNet>0?'+':'') + fmtRs(stats.runningNet);
+    kpiNet.style.color = stats.runningNet>0?'#4ade80': stats.runningNet<0?'#f87171':'';
+  }
+  const lossState = document.getElementById('kpi-loss-state');
+  if(lossState) lossState.textContent = stats.activeLoss>0 ? 'Active Loss: '+fmtRs(stats.activeLoss) : stats.runningNet>0 ? '🎉 Profit mein!' : 'No active loss';
+  const kpiInv = document.getElementById('kpi-invested');
+  if(kpiInv) kpiInv.textContent = fmtRs(stats.totalInvested);
+  const turns = stats.passCount + stats.failCount;
+  const kpiTurns = document.getElementById('kpi-turns');
+  if(kpiTurns) kpiTurns.textContent = turns+' Turns ('+stats.passCount+'P / '+stats.failCount+'F)';
+  const kpiWon = document.getElementById('kpi-won');
+  if(kpiWon) kpiWon.textContent = fmtRs(stats.totalWon);
+  const wr = turns > 0 ? ((stats.passCount/turns)*100).toFixed(1) : '0';
+  const kpiWR = document.getElementById('kpi-winrate');
+  if(kpiWR) kpiWR.textContent = 'Win Rate: '+wr+'%';
+  const kpiPct = document.getElementById('kpi-pct');
+  if(kpiPct) kpiPct.textContent = invGetPct()+'%';
+  const rNames = {round:'Round: Nearest ₹', ceil:'Round Up (Ceil)', exact:'Exact Decimal'};
+  const kpiRound = document.getElementById('kpi-rounding');
+  if(kpiRound) kpiRound.textContent = rNames[invState.config.rounding] || 'Round: Nearest ₹';
+}
+
+function invRenderNextTurn(stats){
+  const rec = invCalcUnit(stats.activeLoss);
+  const jodiEl = document.getElementById('inv-jodi');
+  const unitEl = document.getElementById('inv-unit-override');
+  if(!invUnitManual && unitEl){ unitEl.value = rec.used; }
+  const jodi = Math.max(1, parseInt(jodiEl?.value||22));
+  const unit = Math.max(0.1, parseFloat(unitEl?.value||rec.used));
+  const invest = Math.round(jodi * unit * 100)/100;
+  const win = Math.round(unit * invState.config.multiplier * 100)/100;
+  const turnNetPass = Math.round((win - invest)*100)/100;
+  const overallAfterPass = Math.round((stats.runningNet + turnNetPass)*100)/100;
+  const netAfterFail = Math.round((stats.runningNet - invest)*100)/100;
+
+  const turnNum = invState.history.length + 1;
+  const el = id => document.getElementById(id);
+
+  if(el('nt-turn-label')) el('nt-turn-label').textContent = 'TURN #'+turnNum;
+  if(el('nt-cycle-loss')) el('nt-cycle-loss').textContent = 'Active Loss: '+fmtRs(stats.activeLoss);
+  if(el('nt-unit-val')) el('nt-unit-val').textContent = fmtRs(unit);
+  if(el('nt-unit-exact')) el('nt-unit-exact').textContent = rec.isRecovery
+    ? invGetPct()+'% of '+fmtRs(stats.activeLoss)+' = '+rec.exact.toFixed(2)
+    : 'Base unit (no active loss)';
+  if(el('nt-invest-val')) el('nt-invest-val').textContent = fmtRs(invest);
+  if(el('nt-jodi-mult')) el('nt-jodi-mult').textContent = jodi+' numbers × '+fmtRs(unit);
+  if(el('nt-win-gross')) el('nt-win-gross').textContent = fmtRs(win);
+  if(el('nt-net-on-pass')) el('nt-net-on-pass').textContent = 'Turn Net: '+(turnNetPass>=0?'+':'')+fmtRs(turnNetPass);
+  const oaEl = el('nt-overall-pass');
+  if(oaEl){ oaEl.textContent = (overallAfterPass>=0?'+':'')+fmtRs(overallAfterPass); oaEl.style.color = overallAfterPass>=0?'#4ade80':'#f87171'; }
+  if(el('nt-after-fail')) el('nt-after-fail').textContent = 'If Fail: Net '+(netAfterFail>=0?'+':'')+fmtRs(netAfterFail);
+
+  if(rec.isRecovery){
+    const exStr = Number.isInteger(rec.exact) ? rec.exact : rec.exact.toFixed(2);
+    if(el('nt-formula-box')) el('nt-formula-box').innerHTML = 'Loss <b>'+fmtRs(stats.activeLoss)+'</b> × <b>'+invGetPct()+'%</b> = <b>₹'+exStr+'</b> → Round: <b>₹'+rec.used+'/unit</b> × '+jodi+' = <b>'+fmtRs(invest)+'</b>';
+  } else {
+    if(el('nt-formula-box')) el('nt-formula-box').innerHTML = 'Turn #'+turnNum+': कोई पुराना loss नहीं → Base unit <b>₹'+invState.config.baseUnit+'</b> × '+jodi+' = <b>'+fmtRs(invest)+'</b>';
+  }
+}
+
+function invRenderHistory(stats){
+  const tbody = document.getElementById('inv-hist-body');
+  if(!tbody) return;
+  if(stats.enriched.length === 0){
+    tbody.innerHTML = '<tr><td colspan="11" style="text-align:center;color:var(--muted);padding:18px">अभी कोई चाल record नहीं है। PASS या FAIL दबाएं।</td></tr>';
+    return;
+  }
+  const rows = [...stats.enriched].reverse().map(row => {
+    const dt = new Date(row.timestamp).toLocaleString('en-IN',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'});
+    const tag = row.result==='PASS' ? '<span class="tag-pass">PASS</span>' : '<span class="tag-fail">FAIL</span>';
+    const tnClass = row.turnNet >= 0 ? 'color:#4ade80' : 'color:#f87171';
+    const rnClass = row.runningNet > 0 ? 'color:#4ade80' : row.runningNet < 0 ? 'color:#f87171' : '';
+    const gameColor = {DS:'var(--ds)',FB:'var(--fb)',GB:'var(--gb)',GL:'var(--gl)'}[row.game] || 'var(--muted)';
+    return '<tr>'+
+      '<td><b>#'+row.turnNo+'</b></td>'+
+      '<td style="font-size:10px;color:var(--muted)">'+dt+'</td>'+
+      '<td style="color:'+gameColor+';font-weight:700">'+row.game+'</td>'+
+      '<td>'+row.jodi+'</td>'+
+      '<td>'+fmtRs(row.perUnit)+'</td>'+
+      '<td>'+fmtRs(row.invest)+'</td>'+
+      '<td>'+tag+'</td>'+
+      '<td>'+fmtRs(row.win)+'</td>'+
+      '<td style="'+tnClass+'"><b>'+(row.turnNet>=0?'+':'')+fmtRs(row.turnNet)+'</b></td>'+
+      '<td style="'+rnClass+'"><b>'+(row.runningNet>0?'+':'')+fmtRs(row.runningNet)+'</b></td>'+
+      '<td><button onclick="invDeleteEntry(\''+row.id+'\')" style="background:rgba(239,68,68,.2);border:1px solid rgba(239,68,68,.3);color:#f87171;border-radius:7px;padding:3px 8px;font-size:11px;cursor:pointer">✕</button></td>'+
+      '</tr>';
+  }).join('');
+  tbody.innerHTML = rows;
+}
+
+function invRenderProjection(stats){
+  const tbody = document.getElementById('inv-proj-body');
+  if(!tbody) return;
+  let simNet = stats.runningNet;
+  let startTurn = invState.history.length + 1;
+  const rows = [];
+  for(let i=0; i<10; i++){
+    const prevLoss = simNet < 0 ? Math.abs(simNet) : 0;
+    const rec = invCalcUnit(prevLoss);
+    const jodi = invState.config.jodi;
+    const invest = Math.round(jodi * rec.used * 100)/100;
+    const win = Math.round(rec.used * invState.config.multiplier * 100)/100;
+    const netIfPass = Math.round((simNet + (win - invest))*100)/100;
+    const newLossIfFail = Math.round((simNet - invest)*100)/100;
+    rows.push('<tr>'+
+      '<td><b>T#'+(startTurn+i)+'</b></td>'+
+      '<td style="color:#f87171">'+fmtRs(prevLoss)+'</td>'+
+      '<td style="color:var(--muted)">₹'+rec.exact.toFixed(2)+'</td>'+
+      '<td style="color:#fbbf24;font-weight:800">'+fmtRs(rec.used)+'</td>'+
+      '<td class="c-bb">'+fmtRs(invest)+'</td>'+
+      '<td style="color:#4ade80">'+fmtRs(win)+'</td>'+
+      '<td style="color:'+(netIfPass>=0?'#4ade80':'#f87171')+'"><b>'+(netIfPass>=0?'+':'')+fmtRs(netIfPass)+'</b></td>'+
+      '<td style="color:#f87171">'+fmtRs(Math.abs(newLossIfFail))+'</td>'+
+      '</tr>');
+    simNet = newLossIfFail;
+  }
+  tbody.innerHTML = rows.join('');
+}
+
+function invRenderQuickCalc(){
+  const lossEl = document.getElementById('qlc-loss');
+  const pctEl = document.getElementById('qlc-pct');
+  const outEl = document.getElementById('qlc-output');
+  if(!lossEl||!pctEl||!outEl) return;
+  const loss = Math.max(0, parseFloat(lossEl.value)||0);
+  const pct = Math.max(0.01, parseFloat(pctEl.value)||4.5);
+  const exact = loss * (pct/100);
+  const rounded = loss>0 ? Math.max(1,Math.round(exact)) : 0;
+  const ceiled = loss>0 ? Math.max(1,Math.ceil(exact)) : 0;
+  const jodi = invState.config.jodi;
+  const invest = rounded * jodi;
+  const win = rounded * invState.config.multiplier;
+  outEl.innerHTML = 'Loss <b>'+fmtRs(loss)+'</b> × <b>'+pct+'%</b> = <b>₹'+exact.toFixed(2)+'</b> → Round: <b style="color:#fbbf24">₹'+rounded+'</b> | Ceil: ₹'+ceiled+'<br><span style="opacity:.85">'+jodi+' Jodi Invest: <b>'+fmtRs(invest)+'</b> | Win ('+invState.config.multiplier+'x): <b style="color:#4ade80">'+fmtRs(win)+'</b></span>';
+}
+
+function invRenderAll(){
+  invSyncConfig();
+  const stats = invComputeStats();
+  invRenderKPIs(stats);
+  invRenderNextTurn(stats);
+  invRenderHistory(stats);
+  invRenderProjection(stats);
+  invRenderQuickCalc();
+}
+
+function invRecordTurn(result){
+  const jodi = Math.max(1, parseInt(document.getElementById('inv-jodi')?.value||22));
+  const perUnit = Math.max(0.1, parseFloat(document.getElementById('inv-unit-override')?.value||invState.config.baseUnit));
+  const invest = Math.round(jodi * perUnit * 100)/100;
+  const win = result==='PASS' ? Math.round(perUnit * invState.config.multiplier * 100)/100 : 0;
+  const turnNet = Math.round((win - invest)*100)/100;
+  invState.history.push({
+    id: Date.now().toString(36)+Math.random().toString(36).slice(2,6),
+    timestamp: new Date().toISOString(),
+    game: invState.config.game,
+    jodi, perUnit, invest, result, win, turnNet
+  });
+  invUnitManual = false;
+  saveInvState();
+  invRenderAll();
+}
+
+window.invDeleteEntry = function(id){
+  invState.history = invState.history.filter(h => h.id !== id);
+  invUnitManual = false;
+  saveInvState();
+  invRenderAll();
+};
+
+function invUndoLast(){
+  if(!invState.history.length) return;
+  invState.history.pop();
+  invUnitManual = false;
+  saveInvState();
+  invRenderAll();
+}
+
+function invResetLoss(){
+  // Reset by computing current running net = 0 means just clear history? No — just sets activeLoss concept via clearing history optional
+  // Actually in new model, activeLoss = abs(runningNet) when negative. To "reset loss" we add a synthetic zero entry OR just notify user
+  // Simplest: ask if they want to start new cycle (keep history, just mark)
+  if(!confirm('क्या आप Cycle Loss reset करना चाहते हैं? (इससे history delete नहीं होगी, नया cycle start होगा)')) return;
+  // Add a "RESET" marker entry
+  invState.history.push({
+    id: 'rst'+Date.now().toString(36),
+    timestamp: new Date().toISOString(),
+    game: 'RESET', jodi:0, perUnit:0, invest:0, result:'PASS', win: 0,
+    turnNet: -invComputeStats().runningNet // neutralize running net
+  });
+  invUnitManual = false;
+  saveInvState();
+  invRenderAll();
+}
+
+function invClearAll(){
+  if(!confirm('क्या आप सारा history delete करना चाहते हैं?')) return;
+  invState.history = [];
+  invUnitManual = false;
+  saveInvState();
+  invRenderAll();
+}
+
+function invExportCSV(){
+  const stats = invComputeStats();
+  if(!stats.enriched.length){ alert('Export के लिए कोई record नहीं है।'); return; }
+  const header = ['Turn','Date','Game','Jodi','PerUnit','Invest','Result','Win','TurnNet','RunningNet'];
+  const lines = [header.join(',')];
+  stats.enriched.forEach(r => {
+    lines.push([r.turnNo, r.timestamp, r.game, r.jodi, r.perUnit, r.invest, r.result, r.win, r.turnNet, r.runningNet].join(','));
+  });
+  const blob = new Blob([lines.join('\n')],{type:'text/csv;charset=utf-8;'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href=url; a.download='sk-invest-'+new Date().toISOString().slice(0,10)+'.csv'; a.click();
+  URL.revokeObjectURL(url);
+}
+
+// Invest Tab Event Wiring
+(function initInvestPage(){
+  // Config input changes
+  ['inv-jodi','inv-base','inv-mult','inv-rounding','inv-custom-pct'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.addEventListener('input', ()=>{
+      invState.config.jodi = Math.max(1, parseInt(document.getElementById('inv-jodi').value)||22);
+      invState.config.baseUnit = Math.max(1, parseFloat(document.getElementById('inv-base').value)||10);
+      invState.config.multiplier = Math.max(1, parseInt(document.getElementById('inv-mult').value)||90);
+      invState.config.rounding = document.getElementById('inv-rounding').value;
+      invState.config.customPct = Math.max(0.1, parseFloat(document.getElementById('inv-custom-pct').value)||4.5);
+      invUnitManual = false;
+      saveInvState();
+      invRenderAll();
+    });
+  });
+
+  // PCT pills
+  document.querySelectorAll('.pct-pill').forEach(btn => {
+    btn.addEventListener('click', ()=>{
+      invState.config.pctMode = btn.dataset.pct;
+      const custWrap = document.getElementById('custom-pct-wrap');
+      if(custWrap) custWrap.style.display = btn.dataset.pct==='custom'?'block':'none';
+      invUnitManual = false;
+      saveInvState();
+      invRenderAll();
+    });
+  });
+
+  // Game pills
+  document.querySelectorAll('#inv-game-pills .g-pill').forEach(btn => {
+    btn.addEventListener('click', ()=>{
+      invState.config.game = btn.dataset.g;
+      document.querySelectorAll('#inv-game-pills .g-pill').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      saveInvState();
+    });
+  });
+
+  // Unit override manual
+  const unitEl = document.getElementById('inv-unit-override');
+  if(unitEl) unitEl.addEventListener('input', ()=>{ invUnitManual=true; invRenderNextTurn(invComputeStats()); });
+
+  // PASS / FAIL buttons
+  const passBtn = document.getElementById('inv-btn-pass');
+  const failBtn = document.getElementById('inv-btn-fail');
+  if(passBtn) passBtn.addEventListener('click', ()=>invRecordTurn('PASS'));
+  if(failBtn) failBtn.addEventListener('click', ()=>invRecordTurn('FAIL'));
+
+  // Mini actions
+  const undoBtn = document.getElementById('inv-btn-undo');
+  const exportBtn = document.getElementById('inv-btn-export');
+  const resetBtn = document.getElementById('inv-btn-resetloss');
+  const clearBtn = document.getElementById('inv-btn-clear');
+  if(undoBtn) undoBtn.addEventListener('click', invUndoLast);
+  if(exportBtn) exportBtn.addEventListener('click', invExportCSV);
+  if(resetBtn) resetBtn.addEventListener('click', invResetLoss);
+  if(clearBtn) clearBtn.addEventListener('click', invClearAll);
+
+  // Quick Loss Checker
+  ['qlc-loss','qlc-pct'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.addEventListener('input', invRenderQuickCalc);
+  });
+
+  // Invest tabs
+  document.querySelectorAll('.inv-tab-btn').forEach(btn => {
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.inv-tab-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const target = btn.dataset.itab;
+      const histTab = document.getElementById('itab-history');
+      const projTab = document.getElementById('itab-projection');
+      if(histTab) histTab.style.display = target==='history'?'block':'none';
+      if(projTab) projTab.style.display = target==='projection'?'block':'none';
+    });
+  });
+
+  invRenderAll();
+  invRenderQuickCalc();
+})();
+
+// ════════════════════════════════════════
+//  THEME TOGGLE (Dark / Light)
+// ════════════════════════════════════════
+const THEME_KEY = 'sk_results_theme';
+function applyTheme(theme){
+  const isLight = theme === 'light';
+  document.documentElement.setAttribute('data-theme', isLight ? 'light' : 'dark');
+  const icon = document.getElementById('theme-icon');
+  const label = document.getElementById('theme-label');
+  if(icon) icon.textContent = isLight ? '🌙' : '☀️';
+  if(label) label.textContent = isLight ? 'Dark' : 'Light';
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  if(metaTheme) metaTheme.setAttribute('content', isLight ? '#f3f5fb' : '#0a0a18');
+}
+function toggleTheme(){
+  const cur = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+  const next = cur === 'light' ? 'dark' : 'light';
+  try { localStorage.setItem(THEME_KEY, next); } catch(e){}
+  applyTheme(next);
+}
+(function initTheme(){
+  let saved = 'dark';
+  try { saved = localStorage.getItem(THEME_KEY) || 'dark'; } catch(e){}
+  applyTheme(saved);
 })();
 
 // ════════════════════════════════════════
@@ -883,6 +1728,123 @@ document.getElementById('install-btn').addEventListener('click',async()=>{
 window.addEventListener('appinstalled',()=>{
   document.getElementById('install-banner').style.display='none';
 });
+
+// ════════════════════════════════════════
+//  DATA ENTRY PAGE (PAGE 6) — Custom Days
+// ════════════════════════════════════════
+function parseDEVal(s){
+  const t = String(s).trim().toUpperCase();
+  if(t==='' || t==='XX') return 'XX';
+  const n = parseInt(t);
+  return (!isNaN(n) && n>=0 && n<=99) ? n : 'XX';
+}
+
+function addDayEntry(){
+  const dateVal = parseInt(document.getElementById('de-date').value);
+  if(isNaN(dateVal)||dateVal<1||dateVal>30){
+    showDEMsg('❌ Date 1-30 ke beech hona chahiye','#f87171'); return;
+  }
+  const DS = parseDEVal(document.getElementById('de-ds').value);
+  const FB = parseDEVal(document.getElementById('de-fb').value);
+  const GB = parseDEVal(document.getElementById('de-gb').value);
+  const GL = parseDEVal(document.getElementById('de-gl').value);
+
+  const entry = {
+    d: dateVal,
+    DS, FB, GB, GL,
+    dsM: document.getElementById('de-dsM').value,
+    fbM: document.getElementById('de-fbM').value,
+    gbM: document.getElementById('de-gbM').value,
+    glM: document.getElementById('de-glM').value,
+    _custom: true
+  };
+
+  const customs = loadCustomDays();
+  const idx = customs.findIndex(r=>r.d===dateVal);
+  if(idx>=0){ customs[idx]=entry; } else { customs.push(entry); }
+  saveCustomDays(customs);
+
+  // Rebuild all sections with new data
+  rebuildAllSections();
+  showDEMsg(`✅ Nov ${dateVal} का data save हो गया! सभी sections update हुए।`, '#4ade80');
+  // Auto-increment date for next entry
+  document.getElementById('de-date').value = dateVal + 1;
+  document.getElementById('de-ds').value='';
+  document.getElementById('de-fb').value='';
+  document.getElementById('de-gb').value='';
+  document.getElementById('de-gl').value='';
+  document.getElementById('de-dsM').value='-';
+  document.getElementById('de-fbM').value='-';
+  document.getElementById('de-gbM').value='-';
+  document.getElementById('de-glM').value='-';
+}
+
+function clearDeForm(){
+  document.getElementById('de-ds').value='';
+  document.getElementById('de-fb').value='';
+  document.getElementById('de-gb').value='';
+  document.getElementById('de-gl').value='';
+  document.getElementById('de-dsM').value='-';
+  document.getElementById('de-fbM').value='-';
+  document.getElementById('de-gbM').value='-';
+  document.getElementById('de-glM').value='-';
+  showDEMsg('','');
+}
+
+function showDEMsg(msg, color){
+  const el = document.getElementById('de-msg');
+  el.textContent = msg;
+  el.style.color = color || 'var(--muted)';
+}
+
+function deleteDEEntry(d){
+  const customs = loadCustomDays().filter(r=>r.d!==d);
+  saveCustomDays(customs);
+  rebuildAllSections();
+}
+
+function buildDEHistTable(){
+  const tbody = document.getElementById('de-hist-body');
+  if(!tbody) return;
+  const customs = loadCustomDays();
+  if(!customs.length){
+    tbody.innerHTML=`<tr><td colspan="10" style="text-align:center;color:var(--muted);padding:16px">कोई custom entry नहीं है</td></tr>`;
+    return;
+  }
+  tbody.innerHTML='';
+  [...customs].sort((a,b)=>a.d-b.d).forEach(r=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML=`
+      <td><b>Nov ${r.d}</b></td>
+      <td class="c-ds">${r.DS}</td>
+      <td class="c-fb">${r.FB}</td>
+      <td class="c-gb">${r.GB}</td>
+      <td class="c-gl">${r.GL}</td>
+      <td>${chipHtml(r.dsM)}</td>
+      <td>${chipHtml(r.fbM)}</td>
+      <td>${chipHtml(r.gbM)}</td>
+      <td>${chipHtml(r.glM)}</td>
+      <td><button onclick="deleteDEEntry(${r.d})" style="background:rgba(239,68,68,.2);border:1px solid rgba(239,68,68,.3);color:#f87171;border-radius:7px;padding:3px 8px;font-size:11px;cursor:pointer">🗑️</button></td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+// Wire up rebuildAllSections to call named builders
+function rebuildAllSections(){
+  RAW = buildRAW();
+  validRows = RAW.filter(r => r.DS!=='XX' && r.FB!=='XX' && r.GB!=='XX' && r.GL!=='XX');
+  last4 = validRows.slice(-4);
+  buildNumTable();
+  buildHiLo();
+  buildAABBTable();
+  buildPrediction();
+  buildStreak();
+  buildAnalysis();
+  buildDEHistTable();
+}
+
+// Initial render
+buildDEHistTable();
 </script>
 </body>
 </html>
