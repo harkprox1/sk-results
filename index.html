@@ -1116,7 +1116,7 @@ const DE_KEY = 'sk_custom_days_v1';
 const GS_URL_KEY = 'sk_gsheet_url_v1';
 const GS_CACHE_KEY = 'sk_gsheet_rows_v1';
 const GS_META_KEY = 'sk_gsheet_meta_v1';
-const DEFAULT_GSHEET_URL = '';
+const DEFAULT_GSHEET_URL = 'https://docs.google.com/spreadsheets/d/1oQhhhw9RzUEizEcG_SiNg3YWCkdxMoRVQ5V2yUBZ8Zk/edit?usp=sharing';
 
 function loadCustomDays(){ try{ return JSON.parse(localStorage.getItem(DE_KEY)||'[]'); }catch(e){ return []; }}
 function saveCustomDays(arr){ try{ localStorage.setItem(DE_KEY, JSON.stringify(arr)); }catch(e){} }
@@ -2071,33 +2071,46 @@ function autoMarkerFromNum(val){
   return '-';
 }
 
-function parseCSVLine(line){
-  const out = [];
-  let cur = '', inQ = false;
-  for(let i=0; i<line.length; i++){
-    const ch = line[i];
+function parseFullCSV(text){
+  const rows = [];
+  let row = [], cur = '', inQ = false;
+  const s = String(text||'');
+  for(let i=0; i<s.length; i++){
+    const ch = s[i];
     if(ch === '"'){
-      if(inQ && line[i+1] === '"'){ cur += '"'; i++; }
+      if(inQ && s[i+1] === '"'){ cur += '"'; i++; }
       else inQ = !inQ;
     } else if(ch === ',' && !inQ){
-      out.push(cur.trim()); cur = '';
+      row.push(cur.trim()); cur = '';
+    } else if((ch === '\n' || ch === '\r') && !inQ){
+      if(ch === '\r' && s[i+1] === '\n') i++;
+      row.push(cur.trim());
+      if(row.some(c => c !== '')) rows.push(row);
+      row = []; cur = '';
     } else {
       cur += ch;
     }
   }
-  out.push(cur.trim());
-  return out;
+  if(cur.length || row.length){
+    row.push(cur.trim());
+    if(row.some(c => c !== '')) rows.push(row);
+  }
+  return rows;
 }
 
 function parseSheetDay(s){
   const t = String(s||'').trim();
   if(!t) return NaN;
-  // Match ISO date like 2026-11-27 or 27/11/2026 or "Nov 27" or "27"
-  let m = t.match(/^\d{4}[-/]\d{1,2}[-/](\d{1,2})/);
+  // Pure day number 1..31
+  if(/^\d{1,2}$/.test(t)) return parseInt(t, 10);
+  // ISO date 2026-11-27 or 27/11/2026
+  let m = t.match(/^\d{4}[-/]\d{1,2}[-/](\d{1,2})$/);
   if(m) return parseInt(m[1], 10);
-  m = t.match(/^(\d{1,2})[-/]\d{1,2}[-/]\d{2,4}/);
+  m = t.match(/^(\d{1,2})[-/]\d{1,2}[-/]\d{2,4}$/);
   if(m) return parseInt(m[1], 10);
-  m = t.match(/(\d{1,2})/);
+  // "Nov 27" or "27 Nov" (skip "Oct 2026", "Dec 2026" etc.)
+  if(/\b\d{4}\b/.test(t)) return NaN;
+  m = t.match(/^(?:nov\s*)?(\d{1,2})(?:\s*nov)?$/i);
   return m ? parseInt(m[1], 10) : NaN;
 }
 
@@ -2108,29 +2121,25 @@ function parseSheetMarker(raw, numVal){
 }
 
 function parseGSheetCSV(csvText){
-  const lines = String(csvText||'').split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
-  if(!lines.length) return [];
+  const table = parseFullCSV(csvText);
+  if(!table.length) return [];
   const rows = [];
-  let startIdx = 0;
-  const firstCols = parseCSVLine(lines[0]).map(c=>c.toLowerCase());
-  // Skip header if first cell isn't a valid day number (e.g. "date", "day", "nov")
-  if(firstCols[0].includes('date') || firstCols[0].includes('day') || isNaN(parseSheetDay(firstCols[0]))){
-    startIdx = 1;
-  }
-  for(let i=startIdx; i<lines.length; i++){
-    const cols = parseCSVLine(lines[i]);
+  for(let i=0; i<table.length; i++){
+    const cols = table[i];
     const d = parseSheetDay(cols[0]);
     if(isNaN(d) || d < 1 || d > 31) continue;
     const DS = parseDEVal(cols[1] ?? '');
     const FB = parseDEVal(cols[2] ?? '');
     const GB = parseDEVal(cols[3] ?? '');
     const GL = parseDEVal(cols[4] ?? '');
+    // Support either 9-col format (markers at 5..8) or 16-col chart format (markers at 12..15)
+    const mOff = (cols.length >= 16 && ['AA','BB','-','_'].includes(String(cols[12]||'').trim().toUpperCase())) ? 12 : 5;
     rows.push({
       d, DS, FB, GB, GL,
-      dsM: parseSheetMarker(cols[5], DS),
-      fbM: parseSheetMarker(cols[6], FB),
-      gbM: parseSheetMarker(cols[7], GB),
-      glM: parseSheetMarker(cols[8], GL),
+      dsM: parseSheetMarker(cols[mOff], DS),
+      fbM: parseSheetMarker(cols[mOff+1], FB),
+      gbM: parseSheetMarker(cols[mOff+2], GB),
+      glM: parseSheetMarker(cols[mOff+3], GL),
       _gsheet: true
     });
   }

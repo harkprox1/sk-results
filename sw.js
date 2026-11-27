@@ -1,5 +1,5 @@
 // ══ SK Results PWA Service Worker ══
-const CACHE = 'sk-results-v8';
+const CACHE = 'sk-results-v9';
 const ASSETS = [
   './',
   './index.html',
