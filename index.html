@@ -556,6 +556,10 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(15,23,42,.18)
     </div>
   </div>
   <div class="header-right">
+    <button type="button" class="theme-btn" id="gs-hdr-btn" onclick="headerSyncClick()" title="Google Sheet Live Sync">
+      <span id="gs-hdr-icon">🔄</span>
+      <span id="gs-hdr-lbl">Sync</span>
+    </button>
     <button type="button" class="theme-btn" id="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle Light/Dark Theme">
       <span id="theme-icon">☀️</span>
       <span id="theme-label">Light</span>
@@ -887,7 +891,38 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(15,23,42,.18)
 <!-- PAGE 6: DATA ENTRY -->
 <div class="page" id="pg-data">
 
-  <div class="sec-label">➕ नया Result Add करें (Nov 25+)</div>
+  <!-- Google Sheet Live Sync Card -->
+  <div class="sec-label">📊 Google Sheet Live Sync (Auto Result)</div>
+  <div class="card" style="margin-bottom:14px;border-color:rgba(34,197,94,.3)">
+    <div style="font-size:11px;color:var(--muted);margin-bottom:10px;line-height:1.6;padding:9px 11px;background:rgba(34,197,94,.08);border-radius:11px;border:1px solid rgba(34,197,94,.2)">
+      🔗 <b>Live Process:</b> अपनी Google Sheet में रोज़ का result डालें — ऐप खुलते ही <b>Home, Table, Predict और Analysis</b> अपने-आप live update हो जाएगा! (AA/BB अपने-आप calculate होगा)
+    </div>
+
+    <div class="inv-field">
+      <label>Google Sheet Link (Share link या Publish CSV link)</label>
+      <input type="url" class="inv-input" id="gs-url" placeholder="https://docs.google.com/spreadsheets/d/..." style="font-size:12px"/>
+    </div>
+
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
+      <button type="button" class="btn-pass" style="flex:1.5;padding:11px 12px;font-size:13px" onclick="syncGoogleSheet(false)">🔄 Save &amp; Sync Live</button>
+      <button type="button" class="btn-sm" style="flex:1" onclick="copyGSheetHeader()">📋 Copy Header</button>
+      <button type="button" class="btn-sm danger" onclick="disconnectGSheet()">✕</button>
+    </div>
+
+    <div id="gs-status" style="font-size:11px;color:var(--muted);line-height:1.5;min-height:18px"></div>
+
+    <details style="margin-top:10px;font-size:11px;color:var(--muted);line-height:1.6">
+      <summary style="cursor:pointer;font-weight:700;color:var(--text)">📖 Google Sheet कैसे सेट करें? (3 आसान Steps)</summary>
+      <div style="margin-top:8px;padding:10px;background:rgba(255,255,255,.03);border-radius:10px;border:1px solid var(--border)">
+        1. <b>sheets.new</b> खोलें और पहली row (A1 से E1) में लिखें:<br>
+        <code style="color:#4ade80">Date | DS | FB | GB | GL</code> (ऊपर <b>Copy Header</b> दबाकर A1 में paste कर दें)<br>
+        2. नीचे rows में रोज़ का data भरें (जैसे: <code style="color:#93c5fd">25 | 44 | 67 | 15 | 82</code>, pending के लिए <code style="color:#fbbf24">XX</code> लिखें)<br>
+        3. ऊपर <b>Share → Anyone with the link (Viewer)</b> करें (या <i>File → Share → Publish to web → CSV</i>), link copy करके ऊपर box में paste करें और <b>Save &amp; Sync Live</b> दबाएं!
+      </div>
+    </details>
+  </div>
+
+  <div class="sec-label">➕ नया Result Add करें (Manual / Offline)</div>
   <div class="card" style="margin-bottom:14px">
     <div style="font-size:11px;color:var(--muted);margin-bottom:14px;line-height:1.6;padding:9px 11px;background:rgba(168,85,247,.07);border-radius:11px;border:1px solid rgba(168,85,247,.15)">
       💡 यहाँ रोज़ का नया result डालें — App automatically Home, Table, Analysis सब update हो जाएगा। Data phone में save रहेगा।
@@ -1076,16 +1111,25 @@ const RAW_BASE = [
   {d:24, DS:44,  FB:'XX',GB:'XX',GL:'XX',dsM:'BB',fbM:'_', gbM:'_', glM:'_'},
 ];
 
-// ════ Load custom entries from localStorage and merge ════
+// ════ Load custom entries & Google Sheet rows from localStorage and merge ════
 const DE_KEY = 'sk_custom_days_v1';
+const GS_URL_KEY = 'sk_gsheet_url_v1';
+const GS_CACHE_KEY = 'sk_gsheet_rows_v1';
+const GS_META_KEY = 'sk_gsheet_meta_v1';
+const DEFAULT_GSHEET_URL = '';
+
 function loadCustomDays(){ try{ return JSON.parse(localStorage.getItem(DE_KEY)||'[]'); }catch(e){ return []; }}
 function saveCustomDays(arr){ try{ localStorage.setItem(DE_KEY, JSON.stringify(arr)); }catch(e){} }
+function loadGSheetRows(){ try{ return JSON.parse(localStorage.getItem(GS_CACHE_KEY)||'[]'); }catch(e){ return []; }}
+function saveGSheetRows(arr){ try{ localStorage.setItem(GS_CACHE_KEY, JSON.stringify(arr)); }catch(e){} }
 
 function buildRAW(){
   const custom = loadCustomDays();
+  const gsheet = loadGSheetRows();
   const baseMap = {};
   RAW_BASE.forEach(r => { baseMap[r.d] = r; });
-  custom.forEach(r => { baseMap[r.d] = r; }); // custom overrides base
+  custom.forEach(r => { baseMap[r.d] = r; });
+  gsheet.forEach(r => { baseMap[r.d] = r; }); // Google Sheet live data overrides base & local
   return Object.values(baseMap).sort((a,b) => a.d - b.d);
 }
 let RAW = buildRAW();
@@ -1995,6 +2039,194 @@ function renderAllJodiCopiers(){
   renderJodiCopierInto('jodi-copier-pred');
   renderJodiCopierInto('jodi-copier-invest');
 }
+
+// ════════════════════════════════════════
+//  GOOGLE SHEET LIVE SYNC (CSV)
+// ════════════════════════════════════════
+function getSavedGSUrl(){
+  try { return localStorage.getItem(GS_URL_KEY) || DEFAULT_GSHEET_URL || ''; } catch(e){ return DEFAULT_GSHEET_URL || ''; }
+}
+
+function toGoogleSheetCsvUrl(raw){
+  const u = String(raw||'').trim();
+  if(!u) return '';
+  const sep = u.includes('?') ? '&' : '?';
+  if(u.includes('output=csv') || u.includes('tqx=out:csv') || u.includes('format=csv')){
+    return u + sep + '_t=' + Date.now();
+  }
+  const idMatch = u.match(/\/spreadsheets\/d\/([a-zA-Z0-9_-]+)/);
+  if(idMatch){
+    const gidMatch = u.match(/[?#&]gid=(\d+)/);
+    const gidPart = gidMatch ? '&gid=' + gidMatch[1] : '';
+    return 'https://docs.google.com/spreadsheets/d/' + idMatch[1] + '/gviz/tq?tqx=out:csv' + gidPart + '&_t=' + Date.now();
+  }
+  return u;
+}
+
+function autoMarkerFromNum(val){
+  if(val === 'XX' || val === '' || val === null || val === undefined) return '_';
+  const s = String(parseInt(val, 10)).padStart(2, '0');
+  if(JODI_BASE.AA.includes(s)) return 'AA';
+  if(JODI_BASE.BB.includes(s)) return 'BB';
+  return '-';
+}
+
+function parseCSVLine(line){
+  const out = [];
+  let cur = '', inQ = false;
+  for(let i=0; i<line.length; i++){
+    const ch = line[i];
+    if(ch === '"'){
+      if(inQ && line[i+1] === '"'){ cur += '"'; i++; }
+      else inQ = !inQ;
+    } else if(ch === ',' && !inQ){
+      out.push(cur.trim()); cur = '';
+    } else {
+      cur += ch;
+    }
+  }
+  out.push(cur.trim());
+  return out;
+}
+
+function parseSheetDay(s){
+  const t = String(s||'').trim();
+  if(!t) return NaN;
+  // Match ISO date like 2026-11-27 or 27/11/2026 or "Nov 27" or "27"
+  let m = t.match(/^\d{4}[-/]\d{1,2}[-/](\d{1,2})/);
+  if(m) return parseInt(m[1], 10);
+  m = t.match(/^(\d{1,2})[-/]\d{1,2}[-/]\d{2,4}/);
+  if(m) return parseInt(m[1], 10);
+  m = t.match(/(\d{1,2})/);
+  return m ? parseInt(m[1], 10) : NaN;
+}
+
+function parseSheetMarker(raw, numVal){
+  const t = String(raw||'').trim().toUpperCase();
+  if(t === 'AA' || t === 'BB' || t === '-' || t === '_') return t;
+  return autoMarkerFromNum(numVal);
+}
+
+function parseGSheetCSV(csvText){
+  const lines = String(csvText||'').split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
+  if(!lines.length) return [];
+  const rows = [];
+  let startIdx = 0;
+  const firstCols = parseCSVLine(lines[0]).map(c=>c.toLowerCase());
+  // Skip header if first cell isn't a valid day number (e.g. "date", "day", "nov")
+  if(firstCols[0].includes('date') || firstCols[0].includes('day') || isNaN(parseSheetDay(firstCols[0]))){
+    startIdx = 1;
+  }
+  for(let i=startIdx; i<lines.length; i++){
+    const cols = parseCSVLine(lines[i]);
+    const d = parseSheetDay(cols[0]);
+    if(isNaN(d) || d < 1 || d > 31) continue;
+    const DS = parseDEVal(cols[1] ?? '');
+    const FB = parseDEVal(cols[2] ?? '');
+    const GB = parseDEVal(cols[3] ?? '');
+    const GL = parseDEVal(cols[4] ?? '');
+    rows.push({
+      d, DS, FB, GB, GL,
+      dsM: parseSheetMarker(cols[5], DS),
+      fbM: parseSheetMarker(cols[6], FB),
+      gbM: parseSheetMarker(cols[7], GB),
+      glM: parseSheetMarker(cols[8], GL),
+      _gsheet: true
+    });
+  }
+  return rows;
+}
+
+function setGSStatus(msg, color){
+  const el = document.getElementById('gs-status');
+  if(el){ el.innerHTML = msg; el.style.color = color || 'var(--muted)'; }
+}
+
+function copyGSheetHeader(){
+  const hdr = 'Date\tDS\tFB\tGB\tGL';
+  copyTextSafe(hdr).then(()=>{
+    setGSStatus('✅ Header copy हो गया! Google Sheet के A1 cell में Paste करें।', '#4ade80');
+  });
+}
+
+function disconnectGSheet(){
+  if(!confirm('Google Sheet link हटाना चाहते हैं?')) return;
+  try {
+    localStorage.removeItem(GS_URL_KEY);
+    localStorage.removeItem(GS_CACHE_KEY);
+    localStorage.removeItem(GS_META_KEY);
+  } catch(e){}
+  const inp = document.getElementById('gs-url');
+  if(inp) inp.value = '';
+  rebuildAllSections();
+  setGSStatus('ℹ️ Google Sheet disconnect हो गई।', 'var(--muted)');
+}
+
+function headerSyncClick(){
+  const url = getSavedGSUrl();
+  if(!url){
+    const dataNav = document.querySelector('.nav-item[data-page="pg-data"]');
+    if(dataNav) navTo('pg-data', dataNav);
+    setGSStatus('👆 पहले यहाँ अपनी Google Sheet का link paste करें।', '#fbbf24');
+    return;
+  }
+  syncGoogleSheet(false);
+}
+
+async function syncGoogleSheet(silent){
+  const inp = document.getElementById('gs-url');
+  let rawUrl = (inp && inp.value.trim()) ? inp.value.trim() : getSavedGSUrl();
+  if(!rawUrl){
+    if(!silent) setGSStatus('❌ कृपया Google Sheet का link डालें।', '#f87171');
+    return;
+  }
+  try { localStorage.setItem(GS_URL_KEY, rawUrl); } catch(e){}
+  if(inp && !inp.value.trim()) inp.value = rawUrl;
+
+  const csvUrl = toGoogleSheetCsvUrl(rawUrl);
+  const hdrLbl = document.getElementById('gs-hdr-lbl');
+  if(hdrLbl) hdrLbl.textContent = '...';
+  if(!silent) setGSStatus('⏳ Google Sheet से live data लाया जा रहा है...', '#93c5fd');
+
+  try {
+    const res = await fetch(csvUrl, { cache: 'no-store' });
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    const text = await res.text();
+    if(text.trim().startsWith('<!DOCTYPE') || text.trim().startsWith('<html')){
+      throw new Error('Sheet private है — Share → Anyone with the link (Viewer) करें');
+    }
+    const rows = parseGSheetCSV(text);
+    if(!rows.length){
+      throw new Error('Sheet में कोई valid Date/Result row नहीं मिली');
+    }
+    saveGSheetRows(rows);
+    const nowStr = new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
+    try { localStorage.setItem(GS_META_KEY, JSON.stringify({ lastSync: nowStr, count: rows.length })); } catch(e){}
+    rebuildAllSections();
+    if(hdrLbl) hdrLbl.textContent = 'Sync';
+    setGSStatus('✅ Live Synced (' + nowStr + ') — <b>' + rows.length + ' दिन</b> का data Google Sheet से update हो गया!', '#4ade80');
+  } catch(err){
+    if(hdrLbl) hdrLbl.textContent = 'Sync';
+    if(!silent){
+      setGSStatus('❌ Sync नहीं हो पाया: ' + err.message, '#f87171');
+    }
+  }
+}
+
+(function initGSheet(){
+  const url = getSavedGSUrl();
+  const inp = document.getElementById('gs-url');
+  if(inp && url) inp.value = url;
+  try {
+    const meta = JSON.parse(localStorage.getItem(GS_META_KEY)||'null');
+    if(meta && url){
+      setGSStatus('💾 Last synced: ' + meta.lastSync + ' (' + meta.count + ' rows)', 'var(--muted)');
+    }
+  } catch(e){}
+  if(url){
+    syncGoogleSheet(true);
+  }
+})();
 
 // Initial render
 buildDEHistTable();
